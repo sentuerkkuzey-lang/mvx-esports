@@ -69,6 +69,14 @@
   --foreground: oklch(0.985 0 0);
 }
 
+@font-face {
+  font-family: "Ethnocentric";
+  src: url("/__l5e/assets-v1/567aba8b-4dac-4c99-837b-a500f8618d3e/Ethnocentric-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
