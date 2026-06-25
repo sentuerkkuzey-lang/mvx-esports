@@ -1,0 +1,61 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
+import { Instagram, Twitter, Youtube, Twitch, ArrowUpRight } from "lucide-react";
+import type { ComponentType } from "react";
+
+export const Route = createFileRoute("/social")({
+  head: () => ({
+    meta: [
+      { title: "Social — MVX Esports" },
+      { name: "description", content: "Follow MVX Esports across every platform." },
+    ],
+  }),
+  component: SocialPage,
+});
+
+const socials: { name: string; handle: string; icon: ComponentType<{ className?: string }>; href: string }[] = [
+  { name: "Instagram", handle: "@mvxesports", icon: Instagram, href: "#" },
+  { name: "Twitter / X", handle: "@mvxesports", icon: Twitter, href: "#" },
+  { name: "YouTube", handle: "MVX Esports", icon: Youtube, href: "#" },
+  { name: "Twitch", handle: "mvxesports", icon: Twitch, href: "#" },
+];
+
+function SocialPage() {
+  return (
+    <>
+      <section className="container-xl pt-20 pb-20 md:pt-32 md:pb-28">
+        <Reveal>
+          <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Social</p>
+          <h1 className="mt-6 text-display-lg uppercase max-w-3xl">Follow the journey.</h1>
+          <p className="mt-8 max-w-xl text-muted-foreground">
+            Inside the organization — competition, content, and culture. One brand, every platform.
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="container-xl pb-32">
+        <div className="grid gap-6 sm:grid-cols-2">
+          {socials.map((s, i) => (
+            <Reveal key={s.name} delay={i * 80}>
+              <a
+                href={s.href}
+                className="group flex items-center justify-between rounded-3xl border border-white/10 bg-elevated p-8 md:p-10 transition-all duration-500 hover:border-white/30 hover:-translate-y-1"
+              >
+                <div className="flex items-center gap-6">
+                  <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/15">
+                    <s.icon className="h-6 w-6" />
+                  </span>
+                  <div>
+                    <p className="font-display text-xl uppercase tracking-[0.06em]">{s.name}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{s.handle}</p>
+                  </div>
+                </div>
+                <ArrowUpRight className="h-6 w-6 text-muted-foreground transition-all duration-300 group-hover:rotate-45 group-hover:text-foreground" />
+              </a>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
