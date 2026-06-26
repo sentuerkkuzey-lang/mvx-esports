@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { Check, ArrowUpRight } from "lucide-react";
-import spud2astro from "@/assets/spud2astro.jpg";
+import spud2astro from "@/assets/spud2astro.png.asset.json";
 
 export const Route = createFileRoute("/sponsors")({
   head: () => ({
@@ -47,7 +47,7 @@ function SponsorsPage() {
               >
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img
-                    src={spud2astro}
+                    src={spud2astro.url}
                     alt="Spud2Astro"
                     width={1024}
                     height={1280}

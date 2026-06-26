@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
-import spud2astro from "@/assets/spud2astro.jpg";
+import spud2astro from "@/assets/spud2astro.png.asset.json";
 
 export const Route = createFileRoute("/spud2astro")({
   head: () => ({
@@ -10,7 +10,7 @@ export const Route = createFileRoute("/spud2astro")({
       { name: "description", content: "Ethan 'Spud2Astro' — IT support technician, content creator, and official MVX Esports partner." },
       { property: "og:title", content: "Spud2Astro — MVX Esports Partner" },
       { property: "og:description", content: "Brand ambassador and technical backbone of MVX Esports." },
-      { property: "og:image", content: spud2astro },
+      { property: "og:image", content: spud2astro.url },
     ],
   }),
   component: Spud2AstroPage,
@@ -32,7 +32,7 @@ function Spud2AstroPage() {
           <Reveal>
             <div className="overflow-hidden rounded-3xl border border-white/10 bg-elevated">
               <img
-                src={spud2astro}
+                src={spud2astro.url}
                 alt="Ethan 'Spud2Astro' portrait"
                 width={1024}
                 height={1280}
