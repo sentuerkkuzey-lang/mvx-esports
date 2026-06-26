@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import { Instagram, Twitter, Youtube, Twitch, ArrowUpRight } from "lucide-react";
-import type { ComponentType } from "react";
+import { ArrowUpRight } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
+import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, SOCIAL_LINKS } from "@/components/SocialIcons";
 
 export const Route = createFileRoute("/social")({
   head: () => ({
@@ -13,11 +14,11 @@ export const Route = createFileRoute("/social")({
   component: SocialPage,
 });
 
-const socials: { name: string; handle: string; icon: ComponentType<{ className?: string }>; href: string }[] = [
-  { name: "Instagram", handle: "@mvxesports", icon: Instagram, href: "#" },
-  { name: "Twitter / X", handle: "@mvxesports", icon: Twitter, href: "#" },
-  { name: "YouTube", handle: "MVX Esports", icon: Youtube, href: "#" },
-  { name: "Twitch", handle: "mvxesports", icon: Twitch, href: "#" },
+const socials: { name: string; handle: string; icon: ComponentType<SVGProps<SVGSVGElement>>; href: string }[] = [
+  { name: "Instagram", handle: "@mvx.esports__", icon: InstagramIcon, href: SOCIAL_LINKS.instagram },
+  { name: "X / Twitter", handle: "@MVXEsports", icon: XIcon, href: SOCIAL_LINKS.x },
+  { name: "TikTok", handle: "@mvx.esports__", icon: TikTokIcon, href: SOCIAL_LINKS.tiktok },
+  { name: "Discord", handle: "Join the server", icon: DiscordIcon, href: SOCIAL_LINKS.discord },
 ];
 
 function SocialPage() {
@@ -33,12 +34,14 @@ function SocialPage() {
         </Reveal>
       </section>
 
-      <section className="container-xl pb-32">
+      <section className="container-xl pb-20">
         <div className="grid gap-6 sm:grid-cols-2">
           {socials.map((s, i) => (
             <Reveal key={s.name} delay={i * 80}>
               <a
                 href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex items-center justify-between rounded-3xl border border-white/10 bg-elevated p-8 md:p-10 transition-all duration-500 hover:border-white/30 hover:-translate-y-1"
               >
                 <div className="flex items-center gap-6">
@@ -55,6 +58,27 @@ function SocialPage() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      <section className="container-xl pb-32">
+        <Reveal>
+          <div className="rounded-3xl border border-white/10 bg-elevated p-10 md:p-14 text-center">
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Community</p>
+            <h2 className="mt-4 text-display-lg uppercase">Join the Discord.</h2>
+            <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
+              Live updates, watch parties, and direct access to the MVX community.
+            </p>
+            <a
+              href={SOCIAL_LINKS.discord}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-colors"
+            >
+              <DiscordIcon className="h-4 w-4" />
+              Join Discord
+            </a>
+          </div>
+        </Reveal>
       </section>
     </>
   );

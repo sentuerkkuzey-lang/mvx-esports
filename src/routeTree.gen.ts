@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamsRouteImport } from './routes/teams'
+import { Route as Spud2astroRouteImport } from './routes/spud2astro'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as SocialRouteImport } from './routes/social'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -19,6 +20,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const TeamsRoute = TeamsRouteImport.update({
   id: '/teams',
   path: '/teams',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Spud2astroRoute = Spud2astroRouteImport.update({
+  id: '/spud2astro',
+  path: '/spud2astro',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SponsorsRoute = SponsorsRouteImport.update({
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
+  '/spud2astro': typeof Spud2astroRoute
   '/teams': typeof TeamsRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
+  '/spud2astro': typeof Spud2astroRoute
   '/teams': typeof TeamsRoute
 }
 export interface FileRoutesById {
@@ -70,13 +78,28 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
+  '/spud2astro': typeof Spud2astroRoute
   '/teams': typeof TeamsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/social' | '/sponsors' | '/teams'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/social'
+    | '/sponsors'
+    | '/spud2astro'
+    | '/teams'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/social' | '/sponsors' | '/teams'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/social'
+    | '/sponsors'
+    | '/spud2astro'
+    | '/teams'
   id:
     | '__root__'
     | '/'
@@ -84,6 +107,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/social'
     | '/sponsors'
+    | '/spud2astro'
     | '/teams'
   fileRoutesById: FileRoutesById
 }
@@ -93,6 +117,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   SocialRoute: typeof SocialRoute
   SponsorsRoute: typeof SponsorsRoute
+  Spud2astroRoute: typeof Spud2astroRoute
   TeamsRoute: typeof TeamsRoute
 }
 
@@ -103,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/teams'
       fullPath: '/teams'
       preLoaderRoute: typeof TeamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/spud2astro': {
+      id: '/spud2astro'
+      path: '/spud2astro'
+      fullPath: '/spud2astro'
+      preLoaderRoute: typeof Spud2astroRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sponsors': {
@@ -149,18 +181,9 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   SocialRoute: SocialRoute,
   SponsorsRoute: SponsorsRoute,
+  Spud2astroRoute: Spud2astroRoute,
   TeamsRoute: TeamsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
