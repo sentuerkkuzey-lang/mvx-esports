@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import { Check } from "lucide-react";
+import { Check, ArrowUpRight } from "lucide-react";
+import spud2astro from "@/assets/spud2astro.jpg";
 
 export const Route = createFileRoute("/sponsors")({
   head: () => ({
@@ -32,21 +33,40 @@ function SponsorsPage() {
       </section>
 
       <section className="hairline-t">
-        <div className="container-xl py-20">
+        <div className="container-xl py-20 md:py-24">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground text-center">Our Partners</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Our Partners</p>
+            <h2 className="mt-6 text-display-md uppercase">The people behind MVX.</h2>
           </Reveal>
-          <Reveal delay={120}>
-            <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <div key={i} className="flex items-center justify-center bg-background py-14">
-                  <span className="font-display text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                    Your Brand
-                  </span>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            <Reveal delay={80}>
+              <Link
+                to="/spud2astro"
+                className="group block overflow-hidden rounded-3xl border border-white/10 bg-elevated transition-all duration-500 hover:border-white/30 hover:-translate-y-1"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <img
+                    src={spud2astro}
+                    alt="Spud2Astro"
+                    width={1024}
+                    height={1280}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                 </div>
-              ))}
-            </div>
-          </Reveal>
+                <div className="flex items-end justify-between gap-4 p-6 md:p-8">
+                  <div>
+                    <p className="font-display text-xl uppercase tracking-[0.05em]">Spud2Astro</p>
+                    <p className="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                      Content Creator & IT Partner
+                    </p>
+                  </div>
+                  <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all duration-300 group-hover:rotate-45 group-hover:text-foreground" />
+                </div>
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </section>
 

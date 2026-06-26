@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Twitter, Youtube, Twitch } from "lucide-react";
+import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, SOCIAL_LINKS } from "./SocialIcons";
 import { MvxLogo } from "./MvxLogo";
 
 export function SiteFooter() {
@@ -34,11 +34,18 @@ export function SiteFooter() {
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Connect</p>
             <div className="mt-5 flex gap-3">
-              {[Instagram, Twitter, Youtube, Twitch].map((Icon, i) => (
+              {([
+                { Icon: InstagramIcon, href: SOCIAL_LINKS.instagram, label: "Instagram" },
+                { Icon: XIcon, href: SOCIAL_LINKS.x, label: "X" },
+                { Icon: TikTokIcon, href: SOCIAL_LINKS.tiktok, label: "TikTok" },
+                { Icon: DiscordIcon, href: SOCIAL_LINKS.discord, label: "Discord" },
+              ]).map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
-                  aria-label="social"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 hover:bg-white hover:text-background transition-colors duration-300"
                 >
                   <Icon className="h-4 w-4" />
