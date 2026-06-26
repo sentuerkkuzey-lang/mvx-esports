@@ -91,7 +91,7 @@ function Spud2AstroPage() {
       <section className="hairline-t">
         <div className="container-xl py-20 md:py-28 text-center">
           <Reveal>
-            <h2 className="text-display-md uppercase">Partner with MVX.</h2>
+            <h2 className="text-display-lg uppercase">Partner with MVX.</h2>
             <Link
               to="/contact"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-colors"

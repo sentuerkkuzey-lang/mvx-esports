@@ -64,7 +64,7 @@ function SocialPage() {
         <Reveal>
           <div className="rounded-3xl border border-white/10 bg-elevated p-10 md:p-14 text-center">
             <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Community</p>
-            <h2 className="mt-4 text-display-md uppercase">Join the Discord.</h2>
+            <h2 className="mt-4 text-display-lg uppercase">Join the Discord.</h2>
             <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
               Live updates, watch parties, and direct access to the MVX community.
             </p>

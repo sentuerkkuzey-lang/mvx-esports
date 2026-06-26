@@ -36,7 +36,7 @@ function SponsorsPage() {
         <div className="container-xl py-20 md:py-24">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Our Partners</p>
-            <h2 className="mt-6 text-display-md uppercase">The people behind MVX.</h2>
+            <h2 className="mt-6 text-display-lg uppercase">The people behind MVX.</h2>
           </Reveal>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
