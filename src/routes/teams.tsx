@@ -61,9 +61,9 @@ function TeamsPage() {
 
       <section className="container-xl pb-32">
         <div className="grid gap-6 sm:grid-cols-2">
-          {teams.map((t, i) => (
-            <Reveal key={t.game} delay={i * 100}>
-              <article className="group relative overflow-hidden rounded-3xl border border-white/10 bg-elevated p-8 md:p-10 transition-all duration-500 hover:border-white/30 hover:-translate-y-1">
+          {teams.map((t, i) => {
+            const card = (
+              <article className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-elevated p-8 md:p-10 transition-all duration-500 hover:border-white/30 hover:-translate-y-1">
                 <div className="flex items-start justify-between">
                   <MvxLogo className="h-14 w-14 rounded-full ring-1 ring-white/10" />
                   <span
@@ -83,12 +83,23 @@ function TeamsPage() {
                   {t.desc}
                 </p>
                 <div className="mt-10 hairline-t pt-5 flex items-center justify-between text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  <span>MVX Division</span>
+                  <span>{t.to ? "View roster →" : "MVX Division"}</span>
                   <span>Est. 2026</span>
                 </div>
               </article>
-            </Reveal>
-          ))}
+            );
+            return (
+              <Reveal key={t.game} delay={i * 100}>
+                {t.to ? (
+                  <Link to={t.to} className="block h-full">
+                    {card}
+                  </Link>
+                ) : (
+                  card
+                )}
+              </Reveal>
+            );
+          })}
         </div>
       </section>
     </>
