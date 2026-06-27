@@ -9,20 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as Spud2astroRouteImport } from './routes/spud2astro'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as SocialRouteImport } from './routes/social'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TeamsIndexRouteImport } from './routes/teams.index'
 import { Route as TeamsRocketLeagueRouteImport } from './routes/teams.rocket-league'
 
-const TeamsRoute = TeamsRouteImport.update({
-  id: '/teams',
-  path: '/teams',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const Spud2astroRoute = Spud2astroRouteImport.update({
   id: '/spud2astro',
   path: '/spud2astro',
@@ -53,10 +48,15 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TeamsIndexRoute = TeamsIndexRouteImport.update({
+  id: '/teams/',
+  path: '/teams/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeamsRocketLeagueRoute = TeamsRocketLeagueRouteImport.update({
-  id: '/rocket-league',
-  path: '/rocket-league',
-  getParentRoute: () => TeamsRoute,
+  id: '/teams/rocket-league',
+  path: '/teams/rocket-league',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -66,8 +66,8 @@ export interface FileRoutesByFullPath {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
-  '/teams': typeof TeamsRouteWithChildren
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
+  '/teams/': typeof TeamsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -76,8 +76,8 @@ export interface FileRoutesByTo {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
-  '/teams': typeof TeamsRouteWithChildren
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
+  '/teams': typeof TeamsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -87,8 +87,8 @@ export interface FileRoutesById {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
-  '/teams': typeof TeamsRouteWithChildren
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
+  '/teams/': typeof TeamsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -99,8 +99,8 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
-    | '/teams'
     | '/teams/rocket-league'
+    | '/teams/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -109,8 +109,8 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
-    | '/teams'
     | '/teams/rocket-league'
+    | '/teams'
   id:
     | '__root__'
     | '/'
@@ -119,8 +119,8 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
-    | '/teams'
     | '/teams/rocket-league'
+    | '/teams/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -130,18 +130,12 @@ export interface RootRouteChildren {
   SocialRoute: typeof SocialRoute
   SponsorsRoute: typeof SponsorsRoute
   Spud2astroRoute: typeof Spud2astroRoute
-  TeamsRoute: typeof TeamsRouteWithChildren
+  TeamsRocketLeagueRoute: typeof TeamsRocketLeagueRoute
+  TeamsIndexRoute: typeof TeamsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/teams': {
-      id: '/teams'
-      path: '/teams'
-      fullPath: '/teams'
-      preLoaderRoute: typeof TeamsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/spud2astro': {
       id: '/spud2astro'
       path: '/spud2astro'
@@ -184,25 +178,22 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/teams/': {
+      id: '/teams/'
+      path: '/teams'
+      fullPath: '/teams/'
+      preLoaderRoute: typeof TeamsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/teams/rocket-league': {
       id: '/teams/rocket-league'
-      path: '/rocket-league'
+      path: '/teams/rocket-league'
       fullPath: '/teams/rocket-league'
       preLoaderRoute: typeof TeamsRocketLeagueRouteImport
-      parentRoute: typeof TeamsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface TeamsRouteChildren {
-  TeamsRocketLeagueRoute: typeof TeamsRocketLeagueRoute
-}
-
-const TeamsRouteChildren: TeamsRouteChildren = {
-  TeamsRocketLeagueRoute: TeamsRocketLeagueRoute,
-}
-
-const TeamsRouteWithChildren = TeamsRoute._addFileChildren(TeamsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -211,7 +202,8 @@ const rootRouteChildren: RootRouteChildren = {
   SocialRoute: SocialRoute,
   SponsorsRoute: SponsorsRoute,
   Spud2astroRoute: Spud2astroRoute,
-  TeamsRoute: TeamsRouteWithChildren,
+  TeamsRocketLeagueRoute: TeamsRocketLeagueRoute,
+  TeamsIndexRoute: TeamsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
