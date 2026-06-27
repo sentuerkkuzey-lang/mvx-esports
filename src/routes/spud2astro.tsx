@@ -2,6 +2,28 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import spud2astro from "@/assets/spud2astro.png.asset.json";
+import { TikTokIcon, InstagramIcon, XIcon } from "@/components/SocialIcons";
+
+const spudSocials = [
+  {
+    label: "TikTok",
+    handle: "@spud2astro",
+    href: "https://www.tiktok.com/@spud2astro?_r=1&_t=ZG-97YHeUrK7Ae",
+    Icon: TikTokIcon,
+  },
+  {
+    label: "Instagram",
+    handle: "@spud2astro",
+    href: "https://www.instagram.com/spud2astro",
+    Icon: InstagramIcon,
+  },
+  {
+    label: "X",
+    handle: "@Spud2Astro",
+    href: "https://x.com/Spud2Astro?s=20",
+    Icon: XIcon,
+  },
+];
 
 export const Route = createFileRoute("/spud2astro")({
   head: () => ({
