@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxLogo } from "@/components/MvxLogo";
 
@@ -12,26 +12,37 @@ export const Route = createFileRoute("/teams")({
   component: TeamsPage,
 });
 
-const teams = [
+type Team = {
+  game: string;
+  status: "Active" | "Coming Soon";
+  desc: string;
+  to: "/teams/rocket-league" | null;
+};
+
+const teams: Team[] = [
   {
     game: "Rocket League",
     status: "Active",
     desc: "Our flagship division, competing at the highest level with a roster built for precision and consistency.",
+    to: "/teams/rocket-league",
   },
   {
     game: "Valorant",
     status: "Coming Soon",
     desc: "A tactical FPS program in development — a deliberate expansion into one of esports' most demanding titles.",
+    to: null,
   },
   {
     game: "Counter-Strike",
     status: "Coming Soon",
     desc: "Returning to the roots of competitive FPS. We're building with patience and respect for the title's legacy.",
+    to: null,
   },
   {
     game: "Rainbow Six Siege",
     status: "Coming Soon",
     desc: "A future home for one of esports' most strategic disciplines, joining the MVX roster as we scale.",
+    to: null,
   },
 ];
 
