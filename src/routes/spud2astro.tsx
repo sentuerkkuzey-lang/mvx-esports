@@ -2,6 +2,28 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import spud2astro from "@/assets/spud2astro.png.asset.json";
+import { TikTokIcon, InstagramIcon, XIcon } from "@/components/SocialIcons";
+
+const spudSocials = [
+  {
+    label: "TikTok",
+    handle: "@spud2astro",
+    href: "https://www.tiktok.com/@spud2astro?_r=1&_t=ZG-97YHeUrK7Ae",
+    Icon: TikTokIcon,
+  },
+  {
+    label: "Instagram",
+    handle: "@spud2astro",
+    href: "https://www.instagram.com/spud2astro",
+    Icon: InstagramIcon,
+  },
+  {
+    label: "X",
+    handle: "@Spud2Astro",
+    href: "https://x.com/Spud2Astro?s=20",
+    Icon: XIcon,
+  },
+];
 
 export const Route = createFileRoute("/spud2astro")({
   head: () => ({
@@ -87,6 +109,42 @@ function Spud2AstroPage() {
           </Reveal>
         </div>
       </section>
+
+      <section className="hairline-t">
+        <div className="container-xl py-20 md:py-28 grid gap-12 md:grid-cols-[1fr_2fr] md:gap-20">
+          <Reveal>
+            <h2 className="font-display text-2xl md:text-3xl uppercase tracking-[0.05em]">Social Media</h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <ul className="grid gap-4 sm:grid-cols-3">
+              {spudSocials.map(({ label, handle, href, Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-full items-center justify-between gap-4 rounded-2xl border border-white/10 bg-elevated p-5 transition-all duration-300 hover:border-white/30 hover:-translate-y-0.5"
+                  >
+                    <span className="flex items-center gap-4">
+                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 transition-colors group-hover:border-white/40">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <span>
+                        <span className="block text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                          {label}
+                        </span>
+                        <span className="mt-1 block text-sm">{handle}</span>
+                      </span>
+                    </span>
+                    <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-all duration-300 group-hover:rotate-45 group-hover:text-foreground" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
 
       <section className="hairline-t">
         <div className="container-xl py-20 md:py-28 text-center">

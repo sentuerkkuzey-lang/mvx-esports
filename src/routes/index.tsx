@@ -14,10 +14,10 @@ export const Route = createFileRoute("/")({
 });
 
 const teams = [
-  { game: "Rocket League", status: "Active" },
-  { game: "Valorant", status: "Coming Soon" },
-  { game: "Counter-Strike", status: "Coming Soon" },
-  { game: "Rainbow Six Siege", status: "Coming Soon" },
+  { game: "Rocket League", status: "Active", to: "/teams/rocket-league" as const },
+  { game: "Valorant", status: "Coming Soon", to: null },
+  { game: "Counter-Strike", status: "Coming Soon", to: null },
+  { game: "Rainbow Six Siege", status: "Coming Soon", to: null },
 ];
 
 const updates = [
@@ -121,9 +121,9 @@ function HomePage() {
           </Reveal>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {teams.map((t, i) => (
-              <Reveal key={t.game} delay={i * 100}>
-                <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-elevated p-6 transition-all duration-500 hover:border-white/30 hover:-translate-y-1">
+            {teams.map((t, i) => {
+              const inner = (
+                <div className="group relative h-full aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-elevated p-6 transition-all duration-500 hover:border-white/30 hover:-translate-y-1">
                   <div className="flex items-center justify-between">
                     <MvxLogo className="h-10 w-10 rounded-full ring-1 ring-white/10 opacity-80" />
                     <span className={`text-[10px] uppercase tracking-[0.2em] ${t.status === "Active" ? "text-foreground" : "text-muted-foreground"}`}>
@@ -132,11 +132,24 @@ function HomePage() {
                   </div>
                   <div className="absolute inset-x-6 bottom-6">
                     <p className="font-display text-xl uppercase tracking-[0.05em]">{t.game}</p>
-                    <p className="mt-2 text-xs text-muted-foreground">Division</p>
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      {t.to ? "View roster →" : "Division"}
+                    </p>
                   </div>
                 </div>
-              </Reveal>
-            ))}
+              );
+              return (
+                <Reveal key={t.game} delay={i * 100}>
+                  {t.to ? (
+                    <Link to={t.to} className="block h-full">
+                      {inner}
+                    </Link>
+                  ) : (
+                    inner
+                  )}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
