@@ -14,10 +14,10 @@ export const Route = createFileRoute("/")({
 });
 
 const teams = [
-  { game: "Rocket League", status: "Active" },
-  { game: "Valorant", status: "Coming Soon" },
-  { game: "Counter-Strike", status: "Coming Soon" },
-  { game: "Rainbow Six Siege", status: "Coming Soon" },
+  { game: "Rocket League", status: "Active", to: "/teams/rocket-league" as const },
+  { game: "Valorant", status: "Coming Soon", to: null },
+  { game: "Counter-Strike", status: "Coming Soon", to: null },
+  { game: "Rainbow Six Siege", status: "Coming Soon", to: null },
 ];
 
 const updates = [
