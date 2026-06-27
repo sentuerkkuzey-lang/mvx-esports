@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxLogo } from "@/components/MvxLogo";
-import {
-  ChampionRankIcon,
-  GrandChampionRankIcon,
-  RocketLeagueIcon,
-} from "@/components/RankIcon";
+import { RocketLeagueIcon } from "@/components/RankIcon";
+import rankChampion from "@/assets/rank-champion.jpeg.asset.json";
+import rankGrandChampion from "@/assets/rank-grand-champion.jpeg.asset.json";
+import flagPl from "@/assets/flag-pl.png.asset.json";
+import flagGb from "@/assets/flag-gb.png.asset.json";
 
 export const Route = createFileRoute("/teams/rocket-league")({
   head: () => ({
@@ -26,19 +26,21 @@ export const Route = createFileRoute("/teams/rocket-league")({
   component: RocketLeagueRosterPage,
 });
 
+type Rank = "Champion" | "Grand Champion";
+
 type Player = {
-  flag: string;
+  flagUrl: string;
   country: string;
   name: string;
-  rank: "Champion" | "Grand Champion";
+  rank: Rank;
   profileTo?: string;
 };
 
 const roster: Player[] = [
-  { flag: "🇵🇱", country: "Poland", name: "Marcel", rank: "Champion" },
-  { flag: "🇬🇧", country: "United Kingdom", name: "Jack", rank: "Champion" },
+  { flagUrl: flagPl.url, country: "Poland", name: "Marcel", rank: "Champion" },
+  { flagUrl: flagGb.url, country: "United Kingdom", name: "Jack", rank: "Champion" },
   {
-    flag: "🇬🇧",
+    flagUrl: flagGb.url,
     country: "United Kingdom",
     name: "Ethan",
     rank: "Grand Champion",
@@ -46,21 +48,21 @@ const roster: Player[] = [
   },
 ];
 
-function RankIcon({ rank, className }: { rank: Player["rank"]; className?: string }) {
-  return rank === "Grand Champion" ? (
-    <GrandChampionRankIcon className={className} />
-  ) : (
-    <ChampionRankIcon className={className} />
-  );
-}
+const rankImage: Record<Rank, string> = {
+  Champion: rankChampion.url,
+  "Grand Champion": rankGrandChampion.url,
+};
+
 
 function PlayerCard({ player }: { player: Player }) {
   const inner = (
     <article className="group relative overflow-hidden rounded-3xl border border-white/10 bg-elevated p-8 transition-all duration-500 hover:border-white/30 hover:-translate-y-1">
       <div className="flex items-start justify-between">
-        <span className="text-3xl leading-none" aria-label={player.country}>
-          {player.flag}
-        </span>
+        <img
+          src={player.flagUrl}
+          alt={player.country}
+          className="h-6 w-9 rounded-[2px] object-cover ring-1 ring-white/10"
+        />
         <MvxLogo className="h-9 w-9 rounded-full ring-1 ring-white/10 opacity-80" />
       </div>
 
@@ -78,7 +80,12 @@ function PlayerCard({ player }: { player: Player }) {
             {player.rank}
           </p>
         </div>
-        <RankIcon rank={player.rank} className="h-16 w-16 shrink-0 text-foreground" />
+        <img
+          src={rankImage[player.rank]}
+          alt={`${player.rank} rank`}
+          className="h-20 w-20 shrink-0 object-contain"
+          loading="lazy"
+        />
       </div>
 
       <div className="mt-8 hairline-t pt-5 flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
