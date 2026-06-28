@@ -129,11 +129,18 @@ function HomePage() {
             {teams.map((t, i) => {
               const inner = (
                 <div className="group relative h-full aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-elevated p-6 transition-all duration-500 hover:border-white/30 hover:-translate-y-1">
-                  <div className="flex items-center justify-between">
-                    <img src={t.logo} alt={`${t.game} logo`} className="h-12 w-12 object-contain" loading="lazy" />
+                  <div className="absolute top-6 right-6 z-10">
                     <span className={`text-[10px] uppercase tracking-[0.2em] ${t.status === "Active" ? "text-foreground" : "text-muted-foreground"}`}>
                       {t.status === "Active" ? "● Active" : "Soon"}
                     </span>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center pb-20">
+                    <img
+                      src={t.logo}
+                      alt={`${t.game} logo`}
+                      className="h-40 w-40 md:h-44 md:w-44 object-contain transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="absolute inset-x-6 bottom-6">
                     <p className="font-display text-xl uppercase tracking-[0.05em]">{t.game}</p>
