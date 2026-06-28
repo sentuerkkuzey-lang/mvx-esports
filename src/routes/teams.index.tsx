@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import { MvxLogo } from "@/components/MvxLogo";
+import gameRL from "@/assets/game-rocket-league.jpeg.asset.json";
+import gameVal from "@/assets/game-valorant.jpeg.asset.json";
+import gameCS from "@/assets/game-csgo.png.asset.json";
+import gameR6 from "@/assets/game-r6.jpeg.asset.json";
 
 export const Route = createFileRoute("/teams/")({
   head: () => ({
@@ -17,6 +20,7 @@ type Team = {
   status: "Active" | "Coming Soon";
   desc: string;
   to: "/teams/rocket-league" | null;
+  logo: string;
 };
 
 const teams: Team[] = [
@@ -25,24 +29,28 @@ const teams: Team[] = [
     status: "Active",
     desc: "Our flagship division, competing at the highest level with a roster built for precision and consistency.",
     to: "/teams/rocket-league",
+    logo: gameRL.url,
   },
   {
     game: "Valorant",
     status: "Coming Soon",
     desc: "A tactical FPS program in development — a deliberate expansion into one of esports' most demanding titles.",
     to: null,
+    logo: gameVal.url,
   },
   {
     game: "Counter-Strike",
     status: "Coming Soon",
     desc: "Returning to the roots of competitive FPS. We're building with patience and respect for the title's legacy.",
     to: null,
+    logo: gameCS.url,
   },
   {
     game: "Rainbow Six Siege",
     status: "Coming Soon",
     desc: "A future home for one of esports' most strategic disciplines, joining the MVX roster as we scale.",
     to: null,
+    logo: gameR6.url,
   },
 ];
 
@@ -65,7 +73,7 @@ function TeamsPage() {
             const card = (
               <article className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-elevated p-8 md:p-10 transition-all duration-500 hover:border-white/30 hover:-translate-y-1">
                 <div className="flex items-start justify-between">
-                  <MvxLogo className="h-14 w-14 rounded-full ring-1 ring-white/10" />
+                  <img src={t.logo} alt={`${t.game} logo`} className="h-14 w-14 object-contain" loading="lazy" />
                   <span
                     className={`text-[10px] uppercase tracking-[0.22em] px-3 py-1 rounded-full border ${
                       t.status === "Active"
