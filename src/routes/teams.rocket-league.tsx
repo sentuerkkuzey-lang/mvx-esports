@@ -49,8 +49,8 @@ const roster: Player[] = [
 ];
 
 const rankImage: Record<Rank, string> = {
-  Champion: rankChampion.url,
-  "Grand Champion": rankGrandChampion.url,
+  Champion: rankGrandChampion.url,
+  "Grand Champion": rankChampion.url,
 };
 
 
