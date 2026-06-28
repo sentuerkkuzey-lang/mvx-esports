@@ -2,6 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { MvxLogo } from "@/components/MvxLogo";
 import { Reveal } from "@/components/Reveal";
+import gameRL from "@/assets/game-rocket-league.jpeg.asset.json";
+import gameVal from "@/assets/game-valorant.jpeg.asset.json";
+import gameCS from "@/assets/game-csgo.png.asset.json";
+import gameR6 from "@/assets/game-r6.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -14,11 +18,12 @@ export const Route = createFileRoute("/")({
 });
 
 const teams = [
-  { game: "Rocket League", status: "Active", to: "/teams/rocket-league" as const },
-  { game: "Valorant", status: "Coming Soon", to: null },
-  { game: "Counter-Strike", status: "Coming Soon", to: null },
-  { game: "Rainbow Six Siege", status: "Coming Soon", to: null },
+  { game: "Rocket League", status: "Active", to: "/teams/rocket-league" as const, logo: gameRL.url },
+  { game: "Valorant", status: "Coming Soon", to: null, logo: gameVal.url },
+  { game: "Counter-Strike", status: "Coming Soon", to: null, logo: gameCS.url },
+  { game: "Rainbow Six Siege", status: "Coming Soon", to: null, logo: gameR6.url },
 ];
+
 
 const updates = [
   { tag: "Announcement", title: "MVX Esports officially established", date: "2026" },
@@ -125,7 +130,7 @@ function HomePage() {
               const inner = (
                 <div className="group relative h-full aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-elevated p-6 transition-all duration-500 hover:border-white/30 hover:-translate-y-1">
                   <div className="flex items-center justify-between">
-                    <MvxLogo className="h-10 w-10 rounded-full ring-1 ring-white/10 opacity-80" />
+                    <img src={t.logo} alt={`${t.game} logo`} className="h-12 w-12 object-contain" loading="lazy" />
                     <span className={`text-[10px] uppercase tracking-[0.2em] ${t.status === "Active" ? "text-foreground" : "text-muted-foreground"}`}>
                       {t.status === "Active" ? "● Active" : "Soon"}
                     </span>
