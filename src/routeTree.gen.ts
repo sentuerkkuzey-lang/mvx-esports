@@ -17,6 +17,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TeamsIndexRouteImport } from './routes/teams.index'
 import { Route as TeamsRocketLeagueRouteImport } from './routes/teams.rocket-league'
+import { Route as TeamsFortniteRouteImport } from './routes/teams.fortnite'
 
 const Spud2astroRoute = Spud2astroRouteImport.update({
   id: '/spud2astro',
@@ -58,6 +59,11 @@ const TeamsRocketLeagueRoute = TeamsRocketLeagueRouteImport.update({
   path: '/teams/rocket-league',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TeamsFortniteRoute = TeamsFortniteRouteImport.update({
+  id: '/teams/fortnite',
+  path: '/teams/fortnite',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
+  '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
   '/teams/': typeof TeamsIndexRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
+  '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
   '/teams': typeof TeamsIndexRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
+  '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
   '/teams/': typeof TeamsIndexRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
+    | '/teams/fortnite'
     | '/teams/rocket-league'
     | '/teams/'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
+    | '/teams/fortnite'
     | '/teams/rocket-league'
     | '/teams'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
+    | '/teams/fortnite'
     | '/teams/rocket-league'
     | '/teams/'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   SocialRoute: typeof SocialRoute
   SponsorsRoute: typeof SponsorsRoute
   Spud2astroRoute: typeof Spud2astroRoute
+  TeamsFortniteRoute: typeof TeamsFortniteRoute
   TeamsRocketLeagueRoute: typeof TeamsRocketLeagueRoute
   TeamsIndexRoute: typeof TeamsIndexRoute
 }
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamsRocketLeagueRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/teams/fortnite': {
+      id: '/teams/fortnite'
+      path: '/teams/fortnite'
+      fullPath: '/teams/fortnite'
+      preLoaderRoute: typeof TeamsFortniteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   SocialRoute: SocialRoute,
   SponsorsRoute: SponsorsRoute,
   Spud2astroRoute: Spud2astroRoute,
+  TeamsFortniteRoute: TeamsFortniteRoute,
   TeamsRocketLeagueRoute: TeamsRocketLeagueRoute,
   TeamsIndexRoute: TeamsIndexRoute,
 }
