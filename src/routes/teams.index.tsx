@@ -4,6 +4,7 @@ import gameRL from "@/assets/game-rocket-league.jpeg.asset.json";
 import gameVal from "@/assets/game-valorant.jpeg.asset.json";
 import gameCS from "@/assets/game-csgo.png.asset.json";
 import gameR6 from "@/assets/game-r6.jpeg.asset.json";
+import gameFortnite from "@/assets/game-fortnite.jpeg.asset.json";
 
 export const Route = createFileRoute("/teams/")({
   head: () => ({
@@ -19,7 +20,7 @@ type Team = {
   game: string;
   status: "Active" | "Coming Soon";
   desc: string;
-  to: "/teams/rocket-league" | null;
+  to: "/teams/rocket-league" | "/teams/fortnite" | null;
   logo: string;
 };
 
@@ -30,6 +31,13 @@ const teams: Team[] = [
     desc: "Our flagship division, competing at the highest level with a roster built for precision and consistency.",
     to: "/teams/rocket-league",
     logo: gameRL.url,
+  },
+  {
+    game: "Fortnite",
+    status: "Active",
+    desc: "A new MVX chapter — building a Fortnite program with the same standard that defines every division.",
+    to: "/teams/fortnite",
+    logo: gameFortnite.url,
   },
   {
     game: "Valorant",

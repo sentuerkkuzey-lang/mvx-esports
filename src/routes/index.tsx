@@ -6,6 +6,7 @@ import gameRL from "@/assets/game-rocket-league.jpeg.asset.json";
 import gameVal from "@/assets/game-valorant.jpeg.asset.json";
 import gameCS from "@/assets/game-csgo.png.asset.json";
 import gameR6 from "@/assets/game-r6.jpeg.asset.json";
+import gameFortnite from "@/assets/game-fortnite.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -19,6 +20,7 @@ export const Route = createFileRoute("/")({
 
 const teams = [
   { game: "Rocket League", status: "Active", to: "/teams/rocket-league" as const, logo: gameRL.url },
+  { game: "Fortnite", status: "Active", to: "/teams/fortnite" as const, logo: gameFortnite.url },
   { game: "Valorant", status: "Coming Soon", to: null, logo: gameVal.url },
   { game: "Counter-Strike", status: "Coming Soon", to: null, logo: gameCS.url },
   { game: "Rainbow Six Siege", status: "Coming Soon", to: null, logo: gameR6.url },
