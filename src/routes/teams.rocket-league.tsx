@@ -43,7 +43,7 @@ const roster: Player[] = [
     flagUrl: flagGb.url,
     country: "United Kingdom",
     name: "Ethan",
-    rank: "Grand Champion",
+    rank: "Champion",
     profileTo: "/spud2astro",
   },
 ];
