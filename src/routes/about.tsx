@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxLogo } from "@/components/MvxLogo";
 
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
@@ -51,6 +52,17 @@ function AboutPage() {
                 We treat performance like a craft. We treat people like family. We treat the brand like a legacy.
               </p>
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="hairline-t">
+        <div className="container-xl py-24 md:py-32 text-center">
+          <Reveal>
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Fun fact</p>
+            <p className="mt-6 text-display-thin text-white/80">
+              MVX was supposed to be the owner's personal brand.
+            </p>
           </Reveal>
         </div>
       </section>
