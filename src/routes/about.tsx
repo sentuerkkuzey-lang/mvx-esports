@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxLogo } from "@/components/MvxLogo";
 
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
