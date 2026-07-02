@@ -30,7 +30,7 @@ type Player = {
 };
 
 const roster: Player[] = [
-  { flagUrl: flagGb.url, country: "United Kingdom", name: "Aiden", rank: null },
+  { flagUrl: flagGb, country: "United Kingdom", name: "Aiden", rank: null },
 ];
 
 function PlayerCard({ player }: { player: Player }) {
@@ -86,7 +86,7 @@ function FortniteRosterPage() {
           <Reveal>
             <div className="flex items-center gap-6">
               <img
-                src={gameFortnite.url}
+                src={gameFortnite}
                 alt="Fortnite"
                 className="h-20 w-20 object-contain"
               />

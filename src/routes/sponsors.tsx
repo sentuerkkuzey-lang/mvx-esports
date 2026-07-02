@@ -47,7 +47,7 @@ function SponsorsPage() {
               >
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img
-                    src={spud2astro.url}
+                    src={spud2astro}
                     alt="Spud2Astro"
                     width={1024}
                     height={1280}

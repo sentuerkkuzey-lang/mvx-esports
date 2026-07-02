@@ -37,10 +37,10 @@ type Player = {
 };
 
 const roster: Player[] = [
-  { flagUrl: flagPl.url, country: "Poland", name: "Marcel", rank: "Champion" },
-  { flagUrl: flagGb.url, country: "United Kingdom", name: "Jack", rank: "Champion" },
+  { flagUrl: flagPl, country: "Poland", name: "Marcel", rank: "Champion" },
+  { flagUrl: flagGb, country: "United Kingdom", name: "Jack", rank: "Champion" },
   {
-    flagUrl: flagGb.url,
+    flagUrl: flagGb,
     country: "United Kingdom",
     name: "Ethan",
     rank: "Champion",
@@ -49,8 +49,8 @@ const roster: Player[] = [
 ];
 
 const rankImage: Record<Rank, string> = {
-  Champion: rankGrandChampion.url,
-  "Grand Champion": rankChampion.url,
+  Champion: rankGrandChampion,
+  "Grand Champion": rankChampion,
 };
 
 
