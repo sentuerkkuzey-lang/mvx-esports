@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import gameRL from "@/assets/game-rocket-league.jpeg.asset.json";
-import gameVal from "@/assets/game-valorant.jpeg.asset.json";
-import gameCS from "@/assets/game-csgo.png.asset.json";
-import gameR6 from "@/assets/game-r6.jpeg.asset.json";
-import gameFortnite from "@/assets/game-fortnite.jpeg.asset.json";
+import gameRL from "@/assets/game-rocket-league.jpeg";
+import gameVal from "@/assets/game-valorant.jpeg";
+import gameCS from "@/assets/game-csgo.png";
+import gameR6 from "@/assets/game-r6.jpeg";
+import gameFortnite from "@/assets/game-fortnite.jpeg";
 
 export const Route = createFileRoute("/teams/")({
   head: () => ({
@@ -30,35 +30,35 @@ const teams: Team[] = [
     status: "Active",
     desc: "Our flagship division, competing at the highest level with a roster built for precision and consistency.",
     to: "/teams/rocket-league",
-    logo: gameRL.url,
+    logo: gameRL,
   },
   {
     game: "Fortnite",
     status: "Active",
     desc: "A new MVX chapter — building a Fortnite program with the same standard that defines every division.",
     to: "/teams/fortnite",
-    logo: gameFortnite.url,
+    logo: gameFortnite,
   },
   {
     game: "Valorant",
     status: "Coming Soon",
     desc: "A tactical FPS program in development — a deliberate expansion into one of esports' most demanding titles.",
     to: null,
-    logo: gameVal.url,
+    logo: gameVal,
   },
   {
     game: "Counter-Strike",
     status: "Coming Soon",
     desc: "Returning to the roots of competitive FPS. We're building with patience and respect for the title's legacy.",
     to: null,
-    logo: gameCS.url,
+    logo: gameCS,
   },
   {
     game: "Rainbow Six Siege",
     status: "Coming Soon",
     desc: "A future home for one of esports' most strategic disciplines, joining the MVX roster as we scale.",
     to: null,
-    logo: gameR6.url,
+    logo: gameR6,
   },
 ];
 

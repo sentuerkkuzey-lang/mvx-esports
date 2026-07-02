@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxLogo } from "@/components/MvxLogo";
-import gameFortnite from "@/assets/game-fortnite.jpeg.asset.json";
-import flagGb from "@/assets/flag-gb.png.asset.json";
+import gameFortnite from "@/assets/game-fortnite.jpeg";
+import flagGb from "@/assets/flag-gb.png";
 
 export const Route = createFileRoute("/teams/fortnite")({
   head: () => ({
@@ -30,7 +30,7 @@ type Player = {
 };
 
 const roster: Player[] = [
-  { flagUrl: flagGb.url, country: "United Kingdom", name: "Aiden", rank: null },
+  { flagUrl: flagGb, country: "United Kingdom", name: "Aiden", rank: null },
 ];
 
 function PlayerCard({ player }: { player: Player }) {
@@ -86,7 +86,7 @@ function FortniteRosterPage() {
           <Reveal>
             <div className="flex items-center gap-6">
               <img
-                src={gameFortnite.url}
+                src={gameFortnite}
                 alt="Fortnite"
                 className="h-20 w-20 object-contain"
               />

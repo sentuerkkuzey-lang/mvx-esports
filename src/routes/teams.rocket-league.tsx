@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxLogo } from "@/components/MvxLogo";
 import { RocketLeagueIcon } from "@/components/RankIcon";
-import rankChampion from "@/assets/rank-champion.jpeg.asset.json";
-import rankGrandChampion from "@/assets/rank-grand-champion.jpeg.asset.json";
-import flagPl from "@/assets/flag-pl.png.asset.json";
-import flagGb from "@/assets/flag-gb.png.asset.json";
+import rankChampion from "@/assets/rank-champion.jpeg";
+import rankGrandChampion from "@/assets/rank-grand-champion.jpeg";
+import flagPl from "@/assets/flag-pl.png";
+import flagGb from "@/assets/flag-gb.png";
 
 export const Route = createFileRoute("/teams/rocket-league")({
   head: () => ({
@@ -37,10 +37,10 @@ type Player = {
 };
 
 const roster: Player[] = [
-  { flagUrl: flagPl.url, country: "Poland", name: "Marcel", rank: "Champion" },
-  { flagUrl: flagGb.url, country: "United Kingdom", name: "Jack", rank: "Champion" },
+  { flagUrl: flagPl, country: "Poland", name: "Marcel", rank: "Champion" },
+  { flagUrl: flagGb, country: "United Kingdom", name: "Jack", rank: "Champion" },
   {
-    flagUrl: flagGb.url,
+    flagUrl: flagGb,
     country: "United Kingdom",
     name: "Ethan",
     rank: "Champion",
@@ -49,8 +49,8 @@ const roster: Player[] = [
 ];
 
 const rankImage: Record<Rank, string> = {
-  Champion: rankGrandChampion.url,
-  "Grand Champion": rankChampion.url,
+  Champion: rankGrandChampion,
+  "Grand Champion": rankChampion,
 };
 
 
