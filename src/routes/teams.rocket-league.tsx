@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxLogo } from "@/components/MvxLogo";
 import { RocketLeagueIcon } from "@/components/RankIcon";
-import rankChampion from "@/assets/rank-champion.jpeg.asset.json";
-import rankGrandChampion from "@/assets/rank-grand-champion.jpeg.asset.json";
-import flagPl from "@/assets/flag-pl.png.asset.json";
-import flagGb from "@/assets/flag-gb.png.asset.json";
+import rankChampion from "@/assets/rank-champion.jpeg";
+import rankGrandChampion from "@/assets/rank-grand-champion.jpeg";
+import flagPl from "@/assets/flag-pl.png";
+import flagGb from "@/assets/flag-gb.png";
 
 export const Route = createFileRoute("/teams/rocket-league")({
   head: () => ({

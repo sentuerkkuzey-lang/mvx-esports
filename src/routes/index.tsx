@@ -2,11 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { MvxLogo } from "@/components/MvxLogo";
 import { Reveal } from "@/components/Reveal";
-import gameRL from "@/assets/game-rocket-league.jpeg.asset.json";
-import gameVal from "@/assets/game-valorant.jpeg.asset.json";
-import gameCS from "@/assets/game-csgo.png.asset.json";
-import gameR6 from "@/assets/game-r6.jpeg.asset.json";
-import gameFortnite from "@/assets/game-fortnite.jpeg.asset.json";
+import gameRL from "@/assets/game-rocket-league.jpeg";
+import gameVal from "@/assets/game-valorant.jpeg";
+import gameCS from "@/assets/game-csgo.png";
+import gameR6 from "@/assets/game-r6.jpeg";
+import gameFortnite from "@/assets/game-fortnite.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({

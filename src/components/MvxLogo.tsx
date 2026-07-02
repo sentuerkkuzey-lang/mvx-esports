@@ -1,4 +1,4 @@
-import logo from "@/assets/mvx-logo.jpeg.asset.json";
+import logo from "@/assets/mvx-logo.jpeg";
 
 export function MvxLogo({ className, alt = "MVX Esports" }: { className?: string; alt?: string }) {
   return (

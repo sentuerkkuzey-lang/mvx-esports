@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
-import spud2astro from "@/assets/spud2astro.png.asset.json";
+import spud2astro from "@/assets/spud2astro.png";
 import { TikTokIcon, InstagramIcon, XIcon } from "@/components/SocialIcons";
 
 const spudSocials = [

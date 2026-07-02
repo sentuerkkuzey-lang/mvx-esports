@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxLogo } from "@/components/MvxLogo";
-import gameFortnite from "@/assets/game-fortnite.jpeg.asset.json";
-import flagGb from "@/assets/flag-gb.png.asset.json";
+import gameFortnite from "@/assets/game-fortnite.jpeg";
+import flagGb from "@/assets/flag-gb.png";
 
 export const Route = createFileRoute("/teams/fortnite")({
   head: () => ({

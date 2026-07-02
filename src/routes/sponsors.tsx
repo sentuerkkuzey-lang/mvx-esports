@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { Check, ArrowUpRight } from "lucide-react";
-import spud2astro from "@/assets/spud2astro.png.asset.json";
+import spud2astro from "@/assets/spud2astro.png";
 
 export const Route = createFileRoute("/sponsors")({
   head: () => ({
