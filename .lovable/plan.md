@@ -1,34 +1,8 @@
-Deploy this TanStack Start app to Cloudflare Workers manually.
+Workflow update for all future code changes.
 
-## Current setup
-The project already builds for the Cloudflare preset via Nitro (`vite.config.ts` uses `@lovable.dev/vite-tanstack-config`, which targets Cloudflare Workers by default). The build produces a Worker bundle under `.output/`.
+After every code change, I will:
+1. Check the local git state (`git status` and `git log -1`).
+2. Report whether the change is synced to the GitHub repo.
+3. When synced, include the latest commit hash and timestamp in the report.
 
-## Manual deploy commands
-
-1. **Install Wrangler** (if not already global):
-   ```bash
-   bun add -d wrangler
-   ```
-
-2. **Build the project:**
-   ```bash
-   bun run build
-   ```
-
-3. **Deploy the Worker bundle:**
-   ```bash
-   npx wrangler deploy .output/server/index.mjs
-   ```
-   If the entry file is named differently inside `.output/server/`, adjust the path accordingly.
-
-## What needs to be configured first
-- A `wrangler.toml` file with `name`, `account_id`, `route` or `workers_dev = true`, and `compatibility_date`.
-- Cloudflare API token with `Cloudflare Workers:Edit` permission, set as `CLOUDflare_API_TOKEN` env var or logged in via `npx wrangler login`.
-
-## Optional convenience
-Add a deploy script to `package.json` so the deploy command becomes:
-```bash
-bun run deploy
-```
-
-Would you like me to add Wrangler, create a `wrangler.toml`, and wire the `bun run deploy` script?
+This applies automatically from now on; no project code needs to change.
