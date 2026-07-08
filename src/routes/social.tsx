@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
-import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, SOCIAL_LINKS } from "@/components/SocialIcons";
+import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, TwitchIcon, SOCIAL_LINKS } from "@/components/SocialIcons";
 
 export const Route = createFileRoute("/social")({
   head: () => ({
@@ -18,6 +18,7 @@ const socials: { name: string; handle: string; icon: ComponentType<SVGProps<SVGS
   { name: "Instagram", handle: "@mvx.esports__", icon: InstagramIcon, href: SOCIAL_LINKS.instagram },
   { name: "X / Twitter", handle: "@MVXEsports", icon: XIcon, href: SOCIAL_LINKS.x },
   { name: "TikTok", handle: "@mvx.esports__", icon: TikTokIcon, href: SOCIAL_LINKS.tiktok },
+  { name: "Twitch", handle: "@mvxesports__", icon: TwitchIcon, href: SOCIAL_LINKS.twitch },
   { name: "Discord", handle: "Join the server", icon: DiscordIcon, href: SOCIAL_LINKS.discord },
 ];
 
