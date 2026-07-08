@@ -3,6 +3,8 @@ import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, TwitchIcon, SOCIAL_LINKS } from "@/components/SocialIcons";
+import twitchIcon from "@/assets/twitch-icon.png";
+import discordIcon from "@/assets/discord-icon.png";
 
 export const Route = createFileRoute("/social")({
   head: () => ({
@@ -14,13 +16,21 @@ export const Route = createFileRoute("/social")({
   component: SocialPage,
 });
 
-const socials: { name: string; handle: string; icon: ComponentType<SVGProps<SVGSVGElement>>; href: string }[] = [
+const socials: { name: string; handle: string; icon?: ComponentType<SVGProps<SVGSVGElement>>; image?: string; href: string }[] = [
   { name: "Instagram", handle: "@mvx.esports__", icon: InstagramIcon, href: SOCIAL_LINKS.instagram },
   { name: "X / Twitter", handle: "@MVXEsports", icon: XIcon, href: SOCIAL_LINKS.x },
   { name: "TikTok", handle: "@mvx.esports__", icon: TikTokIcon, href: SOCIAL_LINKS.tiktok },
-  { name: "Twitch", handle: "@mvxesports__", icon: TwitchIcon, href: SOCIAL_LINKS.twitch },
-  { name: "Discord", handle: "Join the server", icon: DiscordIcon, href: SOCIAL_LINKS.discord },
+  { name: "Twitch", handle: "@mvxesports__", image: twitchIcon, href: SOCIAL_LINKS.twitch },
+  { name: "Discord", handle: "Join the server", image: discordIcon, href: SOCIAL_LINKS.discord },
 ];
+
+function SocialIcon({ social }: { social: typeof socials[number] }) {
+  if (social.image) {
+    return <img src={social.image} alt={social.name} className="h-6 w-6 object-contain" loading="lazy" width={512} height={512} />;
+  }
+  const Icon = social.icon;
+  return Icon ? <Icon className="h-6 w-6" /> : null;
+}
 
 function SocialPage() {
   return (
@@ -47,7 +57,7 @@ function SocialPage() {
               >
                 <div className="flex items-center gap-6">
                   <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/15">
-                    <s.icon className="h-6 w-6" />
+                    <SocialIcon social={s} />
                   </span>
                   <div>
                     <p className="font-display text-xl uppercase tracking-[0.06em]">{s.name}</p>
