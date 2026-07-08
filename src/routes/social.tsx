@@ -24,6 +24,14 @@ const socials: { name: string; handle: string; icon?: ComponentType<SVGProps<SVG
   { name: "Discord", handle: "Join the server", image: discordIcon, href: SOCIAL_LINKS.discord },
 ];
 
+function SocialIcon({ social }: { social: typeof socials[number] }) {
+  if (social.image) {
+    return <img src={social.image} alt={social.name} className="h-6 w-6 object-contain" loading="lazy" width={512} height={512} />;
+  }
+  const Icon = social.icon;
+  return Icon ? <Icon className="h-6 w-6" /> : null;
+}
+
 function SocialPage() {
   return (
     <>
