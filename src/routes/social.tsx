@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
-import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, SOCIAL_LINKS } from "@/components/SocialIcons";
+import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, TwitchIcon, SOCIAL_LINKS } from "@/components/SocialIcons";
 
 export const Route = createFileRoute("/social")({
   head: () => ({

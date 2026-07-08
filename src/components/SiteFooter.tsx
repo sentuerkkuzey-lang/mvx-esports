@@ -38,6 +38,7 @@ export function SiteFooter() {
                 { Icon: InstagramIcon, href: SOCIAL_LINKS.instagram, label: "Instagram" },
                 { Icon: XIcon, href: SOCIAL_LINKS.x, label: "X" },
                 { Icon: TikTokIcon, href: SOCIAL_LINKS.tiktok, label: "TikTok" },
+                { Icon: TwitchIcon, href: SOCIAL_LINKS.twitch, label: "Twitch" },
                 { Icon: DiscordIcon, href: SOCIAL_LINKS.discord, label: "Discord" },
               ]).map(({ Icon, href, label }) => (
                 <a
