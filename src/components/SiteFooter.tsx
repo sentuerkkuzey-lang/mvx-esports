@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, SOCIAL_LINKS } from "./SocialIcons";
+import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, TwitchIcon, SOCIAL_LINKS } from "./SocialIcons";
 import { MvxLogo } from "./MvxLogo";
 
 export function SiteFooter() {

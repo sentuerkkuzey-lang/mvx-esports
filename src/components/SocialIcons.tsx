@@ -34,9 +34,19 @@ export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function TwitchIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M2.5 2.5 5 17.5 12 20 19 17.5 21.5 2.5H2.5Zm4.3 4.3h2.5v7.5H6.8V6.8Zm6.2 0h2.5v7.5H13V6.8Z" />
+      <path d="M17.5 2.5v2.5h2.5v10l-5 2.5-5-2.5V2.5" />
+    </svg>
+  );
+}
+
 export const SOCIAL_LINKS = {
   tiktok: "https://www.tiktok.com/@mvx.esports__",
   instagram: "https://www.instagram.com/mvx.esports__?igsh=ZHJmMmU5cmM4eXF5&utm_source=qr",
   x: "https://x.com/MVXEsports",
   discord: "https://discord.gg/XkAnjVmTCE",
+  twitch: "https://www.twitch.tv/mvxesports__",
 } as const;
