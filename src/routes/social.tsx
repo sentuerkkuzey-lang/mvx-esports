@@ -49,11 +49,7 @@ function SocialPage() {
               >
                 <div className="flex items-center gap-6">
                   <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/15">
-                    {s.image ? (
-                      <img src={s.image} alt={s.name} className="h-6 w-6 object-contain" loading="lazy" width={512} height={512} />
-                    ) : (
-                      <s.icon className="h-6 w-6" />
-                    )}
+                    <SocialIcon social={s} />
                   </span>
                   <div>
                     <p className="font-display text-xl uppercase tracking-[0.06em]">{s.name}</p>
