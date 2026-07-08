@@ -3,6 +3,8 @@ import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, TwitchIcon, SOCIAL_LINKS } from "@/components/SocialIcons";
+import twitchIcon from "@/assets/twitch-icon.png";
+import discordIcon from "@/assets/discord-icon.png";
 
 export const Route = createFileRoute("/social")({
   head: () => ({
@@ -14,12 +16,12 @@ export const Route = createFileRoute("/social")({
   component: SocialPage,
 });
 
-const socials: { name: string; handle: string; icon: ComponentType<SVGProps<SVGSVGElement>>; href: string }[] = [
+const socials: { name: string; handle: string; icon?: ComponentType<SVGProps<SVGSVGElement>>; image?: string; href: string }[] = [
   { name: "Instagram", handle: "@mvx.esports__", icon: InstagramIcon, href: SOCIAL_LINKS.instagram },
   { name: "X / Twitter", handle: "@MVXEsports", icon: XIcon, href: SOCIAL_LINKS.x },
   { name: "TikTok", handle: "@mvx.esports__", icon: TikTokIcon, href: SOCIAL_LINKS.tiktok },
-  { name: "Twitch", handle: "@mvxesports__", icon: TwitchIcon, href: SOCIAL_LINKS.twitch },
-  { name: "Discord", handle: "Join the server", icon: DiscordIcon, href: SOCIAL_LINKS.discord },
+  { name: "Twitch", handle: "@mvxesports__", image: twitchIcon, href: SOCIAL_LINKS.twitch },
+  { name: "Discord", handle: "Join the server", image: discordIcon, href: SOCIAL_LINKS.discord },
 ];
 
 function SocialPage() {
