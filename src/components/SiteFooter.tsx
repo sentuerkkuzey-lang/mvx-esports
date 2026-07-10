@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, TwitchIcon, SOCIAL_LINKS } from "./SocialIcons";
+import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, TwitchIcon, YouTubeIcon, SOCIAL_LINKS } from "./SocialIcons";
 import { MvxLogo } from "./MvxLogo";
 
 export function SiteFooter() {
@@ -38,6 +38,7 @@ export function SiteFooter() {
                 { Icon: InstagramIcon, href: SOCIAL_LINKS.instagram, label: "Instagram" },
                 { Icon: XIcon, href: SOCIAL_LINKS.x, label: "X" },
                 { Icon: TikTokIcon, href: SOCIAL_LINKS.tiktok, label: "TikTok" },
+                { Icon: YouTubeIcon, href: SOCIAL_LINKS.youtube, label: "YouTube" },
                 { Icon: TwitchIcon, href: SOCIAL_LINKS.twitch, label: "Twitch" },
                 { Icon: DiscordIcon, href: SOCIAL_LINKS.discord, label: "Discord" },
               ]).map(({ Icon, href, label }) => (
