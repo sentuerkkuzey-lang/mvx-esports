@@ -47,7 +47,7 @@ function PlayerCard({ player }: { player: Player }) {
 
       <div className="mt-14 flex items-end justify-between gap-6">
         <div className="min-w-0">
-          <p className="font-display text-3xl uppercase tracking-[0.05em] truncate">
+          <p className="font-display text-3xl uppercase tracking-[0.05em]">
             {player.name}
           </p>
           <p className="mt-4 text-xs uppercase tracking-[0.22em] text-muted-foreground">
