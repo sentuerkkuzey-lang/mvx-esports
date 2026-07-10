@@ -43,10 +43,19 @@ export function TwitchIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function YouTubeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M23.5 6.2a3.03 3.03 0 0 0-2.1-2.2C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.5A3.03 3.03 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3.03 3.03 0 0 0 2.1 2.2c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3.03 3.03 0 0 0 2.1-2.2A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.55 15.5V8.5l6.27 3.5L9.55 15.5Z" />
+    </svg>
+  );
+}
+
 export const SOCIAL_LINKS = {
   tiktok: "https://www.tiktok.com/@mvx.esports__",
   instagram: "https://www.instagram.com/mvx.esports__?igsh=ZHJmMmU5cmM4eXF5&utm_source=qr",
   x: "https://x.com/MVXEsports",
   discord: "https://discord.gg/XkAnjVmTCE",
   twitch: "https://www.twitch.tv/mvxesports__",
+  youtube: "https://www.youtube.com/@mvxesports",
 } as const;

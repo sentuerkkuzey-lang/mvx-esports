@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
-import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, TwitchIcon, SOCIAL_LINKS } from "@/components/SocialIcons";
+import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, TwitchIcon, YouTubeIcon, SOCIAL_LINKS } from "@/components/SocialIcons";
 import twitchIcon from "@/assets/twitch-icon.png";
 import discordIcon from "@/assets/discord-icon.png";
 
@@ -20,6 +20,7 @@ const socials: { name: string; handle: string; icon?: ComponentType<SVGProps<SVG
   { name: "Instagram", handle: "@mvx.esports__", icon: InstagramIcon, href: SOCIAL_LINKS.instagram },
   { name: "X / Twitter", handle: "@MVXEsports", icon: XIcon, href: SOCIAL_LINKS.x },
   { name: "TikTok", handle: "@mvx.esports__", icon: TikTokIcon, href: SOCIAL_LINKS.tiktok },
+  { name: "YouTube", handle: "@mvxesports", icon: YouTubeIcon, href: SOCIAL_LINKS.youtube },
   { name: "Twitch", handle: "@mvxesports__", image: twitchIcon, href: SOCIAL_LINKS.twitch },
   { name: "Discord", handle: "Join the server", image: discordIcon, href: SOCIAL_LINKS.discord },
 ];

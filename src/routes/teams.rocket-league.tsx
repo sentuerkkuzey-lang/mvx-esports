@@ -6,6 +6,7 @@ import rankChampion from "@/assets/rank-champion.jpeg";
 import rankGrandChampion from "@/assets/rank-grand-champion.jpeg";
 import flagPl from "@/assets/flag-pl.png";
 import flagGb from "@/assets/flag-gb.png";
+import flagGr from "@/assets/flag-gr.png";
 
 export const Route = createFileRoute("/teams/rocket-league")({
   head: () => ({
@@ -46,6 +47,7 @@ const roster: Player[] = [
     rank: "Champion",
     profileTo: "/spud2astro",
   },
+  { flagUrl: flagGr, country: "Germany", name: "Samuel", rank: "Champion" },
 ];
 
 const rankImage: Record<Rank, string> = {
