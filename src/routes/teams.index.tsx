@@ -20,7 +20,7 @@ type Team = {
   game: string;
   status: "Active" | "Coming Soon";
   desc: string;
-  to: "/teams/rocket-league" | "/teams/fortnite" | null;
+  to: "/teams/rocket-league" | "/teams/fortnite" | "/teams/rainbow-six-siege" | null;
   logo: string;
 };
 
@@ -40,6 +40,13 @@ const teams: Team[] = [
     logo: gameFortnite,
   },
   {
+    game: "Rainbow Six Siege",
+    status: "Active",
+    desc: "A tactical, disciplined division built for the demands of Rainbow Six Siege — Pure Class under pressure.",
+    to: "/teams/rainbow-six-siege",
+    logo: gameR6,
+  },
+  {
     game: "Valorant",
     status: "Coming Soon",
     desc: "A tactical FPS program in development — a deliberate expansion into one of esports' most demanding titles.",
@@ -52,13 +59,6 @@ const teams: Team[] = [
     desc: "Returning to the roots of competitive FPS. We're building with patience and respect for the title's legacy.",
     to: null,
     logo: gameCS,
-  },
-  {
-    game: "Rainbow Six Siege",
-    status: "Coming Soon",
-    desc: "A future home for one of esports' most strategic disciplines, joining the MVX roster as we scale.",
-    to: null,
-    logo: gameR6,
   },
 ];
 
