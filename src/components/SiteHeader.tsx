@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { MvxLogo } from "./MvxLogo";
+import { MvxAcademyLogo } from "./MvxAcademyLogo";
+
 
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/teams", label: "Teams" },
+  { to: "/academy", label: "Academy" },
   { to: "/sponsors", label: "Sponsors" },
   { to: "/social", label: "Social" },
   { to: "/contact", label: "Contact" },
@@ -16,6 +19,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isAcademy = pathname.startsWith("/academy");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -35,9 +39,15 @@ export function SiteHeader() {
       }`}
     >
       <div className="container-xl flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
-          <MvxLogo className="h-9 w-9 rounded-full ring-1 ring-white/15 transition-transform duration-500 group-hover:scale-105" />
-          <span className="font-display text-xs tracking-[0.25em] uppercase opacity-90">MVX Esports</span>
+        <Link to={isAcademy ? "/academy" : "/"} className="flex items-center gap-3 group">
+          {isAcademy ? (
+            <MvxAcademyLogo className="h-9 w-9 rounded-full ring-1 ring-white/15 transition-transform duration-500 group-hover:scale-105" />
+          ) : (
+            <MvxLogo className="h-9 w-9 rounded-full ring-1 ring-white/15 transition-transform duration-500 group-hover:scale-105" />
+          )}
+          <span className="font-display text-xs tracking-[0.25em] uppercase opacity-90">
+            {isAcademy ? "MVX Academy" : "MVX Esports"}
+          </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
