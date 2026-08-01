@@ -28,10 +28,10 @@ const spudSocials = [
 export const Route = createFileRoute("/spud2astro")({
   head: () => ({
     meta: [
-      { title: "Spud2Astro — MVX Esports Partner" },
-      { name: "description", content: "Ethan 'Spud2Astro' — IT support technician, content creator, and official MVX Esports partner." },
-      { property: "og:title", content: "Spud2Astro — MVX Esports Partner" },
-      { property: "og:description", content: "Brand ambassador and technical backbone of MVX Esports." },
+      { title: "Spud2Astro — Co-Founder of MVX" },
+      { name: "description", content: "Ethan 'Spud2Astro' — Co-Founder of MVX, the ecosystem behind MVX Esports. IT infrastructure, content creator, and brand leader." },
+      { property: "og:title", content: "Spud2Astro — Co-Founder of MVX" },
+      { property: "og:description", content: "Co-founder of MVX and the technical and creative force behind the MVX ecosystem." },
       { property: "og:image", content: spud2astro },
     ],
   }),
@@ -64,14 +64,15 @@ function Spud2AstroPage() {
           </Reveal>
 
           <Reveal delay={120}>
-            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Official Partner</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Co-Founder, MVX</p>
             <h1 className="mt-6 text-display-lg uppercase">Spud2Astro</h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Ethan — content creator, IT support technician, and MVX Esports partner.
+              Ethan "Spud2Astro" is the co-founder of MVX — the ecosystem behind MVX Esports. He shapes the organisation's technical infrastructure, brand voice, and community-first content strategy.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <span className="rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">Brand Ambassador</span>
+              <span className="rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">Co-Founder</span>
               <span className="rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">IT & Infrastructure</span>
+              <span className="rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">Content Creator</span>
               <span className="rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">Streamer</span>
             </div>
           </Reveal>
@@ -85,11 +86,7 @@ function Spud2AstroPage() {
           </Reveal>
           <Reveal delay={120}>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Ethan "Spud2Astro" is an IT support technician, content creator, and official partner at MVX Esports.
-              Ethan works in the IT support sector, which informs the technical setup of his streams. Under the alias
-              Spud2Astro, he runs a live-streaming channel centered on community interaction, gaming, and sports
-              discussion. He is well-known in his community for inside jokes, including his habit of drinking from a
-              large glass jar.
+              Ethan "Spud2Astro" began his career in IT support, where he developed the technical discipline that now underpins the entire MVX ecosystem. Under the alias Spud2Astro, he built a live-streaming channel rooted in community, sports discussion, and gaming. His on-camera presence and behind-the-scenes expertise have made him both a creator and a builder — equally comfortable in front of a stream as he is maintaining the infrastructure that keeps MVX running.
             </p>
           </Reveal>
         </div>
@@ -98,13 +95,11 @@ function Spud2AstroPage() {
       <section className="hairline-t">
         <div className="container-xl py-20 md:py-28 grid gap-12 md:grid-cols-[1fr_2fr] md:gap-20">
           <Reveal>
-            <h2 className="font-display text-2xl md:text-3xl uppercase tracking-[0.05em]">Role at MVX Esports</h2>
+            <h2 className="font-display text-2xl md:text-3xl uppercase tracking-[0.05em]">Role at MVX</h2>
           </Reveal>
           <Reveal delay={120}>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Ethan is a formal partner within MVX Esports. He acts as a brand ambassador by representing the
-              organization on his streams, and he uses his IT background to maintain the club's technical
-              infrastructure and backend operations.
+              As co-founder of MVX, Ethan leads the technical and creative backbone of the organisation. He is responsible for the platforms, infrastructure, and partner-facing technology that power MVX Esports, while also shaping the brand's voice through content and community engagement. His role sits at the intersection of engineering, brand, and culture — making him one of the defining forces behind the MVX ecosystem.
             </p>
           </Reveal>
         </div>

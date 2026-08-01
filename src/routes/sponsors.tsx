@@ -59,7 +59,7 @@ function SponsorsPage() {
                   <div>
                     <p className="font-display text-xl uppercase tracking-[0.05em]">Spud2Astro</p>
                     <p className="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                      Content Creator & IT Partner
+                      Co-Founder, MVX
                     </p>
                   </div>
                   <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all duration-300 group-hover:rotate-45 group-hover:text-foreground" />
