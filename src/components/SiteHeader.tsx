@@ -18,6 +18,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isAcademy = pathname.startsWith("/academy");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
