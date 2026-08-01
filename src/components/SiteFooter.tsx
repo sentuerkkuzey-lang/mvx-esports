@@ -35,6 +35,7 @@ export function SiteFooter() {
             { label: "Home", to: "/" },
             { label: "About", to: "/about" },
             { label: "Teams", to: "/teams" },
+            { label: "Academy", to: "/academy" },
           ]} />
           <FooterCol title="Business" items={[
             { label: "Sponsors", to: "/sponsors" },
