@@ -4,20 +4,30 @@ import { MvxLogo } from "./MvxLogo";
 import { MvxAcademyLogo } from "./MvxAcademyLogo";
 
 export function SiteFooter() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isAcademy = pathname.startsWith("/academy");
   return (
     <footer className="hairline-t mt-32">
       <div className="container-xl py-20">
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <MvxLogo className="h-10 w-10 rounded-full ring-1 ring-white/15" />
-              <span className="font-display text-xs tracking-[0.25em] uppercase">MVX Esports</span>
+              {isAcademy ? (
+                <MvxAcademyLogo className="h-10 w-10 rounded-full ring-1 ring-white/15" />
+              ) : (
+                <MvxLogo className="h-10 w-10 rounded-full ring-1 ring-white/15" />
+              )}
+              <span className="font-display text-xs tracking-[0.25em] uppercase">
+                {isAcademy ? "MVX Academy" : "MVX Esports"}
+              </span>
             </div>
             <p className="mt-6 font-display text-3xl md:text-4xl uppercase tracking-[0.06em]">
               Pure Class
             </p>
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-              A modern esports organization built on professionalism, ambition, and competitive excellence.
+              {isAcademy
+                ? "The development arm of MVX Esports, building the next generation of competitive talent."
+                : "A modern esports organization built on professionalism, ambition, and competitive excellence."}
             </p>
           </div>
 
