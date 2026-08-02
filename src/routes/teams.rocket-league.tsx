@@ -4,9 +4,13 @@ import { MvxLogo } from "@/components/MvxLogo";
 import { RocketLeagueIcon } from "@/components/RankIcon";
 import rankChampion from "@/assets/rank-champion.jpeg";
 import rankGrandChampion from "@/assets/rank-grand-champion.jpeg";
+import rankDiamond from "@/assets/rank-diamond.jpeg";
 import flagPl from "@/assets/flag-pl.png";
 import flagGb from "@/assets/flag-gb.png";
+import flagDe from "@/assets/flag-de.png";
 import flagGr from "@/assets/flag-gr.png";
+import flagBe from "@/assets/flag-be.png";
+import flagUs from "@/assets/flag-us.png";
 
 export const Route = createFileRoute("/teams/rocket-league")({
   head: () => ({
@@ -27,7 +31,7 @@ export const Route = createFileRoute("/teams/rocket-league")({
   component: RocketLeagueRosterPage,
 });
 
-type Rank = "Champion" | "Grand Champion";
+type Rank = "Champion" | "Grand Champion" | "Diamond";
 
 type Player = {
   flagUrl: string;
@@ -47,13 +51,18 @@ const roster: Player[] = [
     rank: "Champion",
     profileTo: "/spud2astro",
   },
-  { flagUrl: flagGr, country: "Germany", name: "Samuel", rank: "Champion" },
+  { flagUrl: flagDe, country: "Germany", name: "Samuel", rank: "Champion" },
+  { flagUrl: flagGr, country: "Greece", name: "Kaptsis", rank: "Diamond" },
+  { flagUrl: flagBe, country: "Belgium", name: "yentl", rank: "Champion" },
+  { flagUrl: flagUs, country: "United States", name: "kit", rank: "Grand Champion" },
 ];
 
 const rankImage: Record<Rank, string> = {
   Champion: rankGrandChampion,
   "Grand Champion": rankChampion,
+  Diamond: rankDiamond,
 };
+
 
 
 function PlayerCard({ player }: { player: Player }) {
@@ -65,7 +74,7 @@ function PlayerCard({ player }: { player: Player }) {
           alt={player.country}
           className="h-6 w-9 rounded-[2px] object-cover ring-1 ring-white/10"
         />
-        <MvxLogo className="h-9 w-9 rounded-full ring-1 ring-white/10 opacity-80" />
+        <MvxLogo className="h-9 w-9 opacity-80" />
       </div>
 
       <div className="mt-14 flex items-end justify-between gap-6">

@@ -89,7 +89,7 @@ function AboutPage() {
       <section className="hairline-t">
         <div className="container-xl py-24 md:py-32 text-center">
           <Reveal>
-            <MvxLogo className="mx-auto h-20 w-20 rounded-full ring-1 ring-white/15" />
+            <MvxLogo className="mx-auto h-24 w-24" />
             <h2 className="mt-10 text-display-lg uppercase">The long view.</h2>
             <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
               MVX Esports is built to grow methodically — from Rocket League into Valorant, Counter-Strike, and Rainbow Six Siege — with patience, precision, and purpose.
