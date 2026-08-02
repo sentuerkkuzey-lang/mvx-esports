@@ -41,7 +41,7 @@ function HomePage() {
         <div className="container-xl pt-16 pb-32 md:pt-28 md:pb-40">
           <Reveal>
             <div className="flex justify-center">
-              <MvxLogo className="h-32 w-32 md:h-44 md:w-44 rounded-full ring-1 ring-white/15 shadow-[0_30px_120px_-30px_rgba(255,255,255,0.25)]" />
+              <MvxLogo className="h-52 w-52 md:h-72 md:w-72" />
             </div>
           </Reveal>
 

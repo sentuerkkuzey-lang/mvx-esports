@@ -43,7 +43,7 @@ function PlayerCard({ player }: { player: Player }) {
           alt={player.country}
           className="h-6 w-9 rounded-[2px] object-cover ring-1 ring-white/10"
         />
-        <MvxLogo className="h-9 w-9 rounded-full ring-1 ring-white/10 opacity-80" />
+        <MvxLogo className="h-9 w-9 opacity-80" />
       </div>
 
       <div className="mt-14 flex items-end justify-between gap-6">

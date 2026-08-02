@@ -15,7 +15,7 @@ export function SiteFooter() {
               {isAcademy ? (
                 <MvxAcademyLogo className="h-10 w-10 rounded-full ring-1 ring-white/15" />
               ) : (
-                <MvxLogo className="h-10 w-10 rounded-full ring-1 ring-white/15" />
+                <MvxLogo className="h-10 w-10" />
               )}
               <span className="font-display text-xs tracking-[0.25em] uppercase">
                 {isAcademy ? "MVX Academy" : "MVX Esports"}
