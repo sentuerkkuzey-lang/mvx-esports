@@ -13,10 +13,10 @@ import { Route as Spud2astroRouteImport } from './routes/spud2astro'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as SocialRouteImport } from './routes/social'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TeamsIndexRouteImport } from './routes/teams.index'
+import { Route as AcademyIndexRouteImport } from './routes/academy.index'
 import { Route as TeamsRocketLeagueRouteImport } from './routes/teams.rocket-league'
 import { Route as TeamsRainbowSixSiegeRouteImport } from './routes/teams.rainbow-six-siege'
 import { Route as TeamsFortniteRouteImport } from './routes/teams.fortnite'
@@ -41,11 +41,6 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AcademyRoute = AcademyRouteImport.update({
-  id: '/academy',
-  path: '/academy',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -59,6 +54,11 @@ const IndexRoute = IndexRouteImport.update({
 const TeamsIndexRoute = TeamsIndexRouteImport.update({
   id: '/teams/',
   path: '/teams/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademyIndexRoute = AcademyIndexRouteImport.update({
+  id: '/academy/',
+  path: '/academy/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TeamsRocketLeagueRoute = TeamsRocketLeagueRouteImport.update({
@@ -80,7 +80,6 @@ const TeamsFortniteRoute = TeamsFortniteRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/academy': typeof AcademyRoute
   '/contact': typeof ContactRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
@@ -88,12 +87,12 @@ export interface FileRoutesByFullPath {
   '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rainbow-six-siege': typeof TeamsRainbowSixSiegeRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
+  '/academy/': typeof AcademyIndexRoute
   '/teams/': typeof TeamsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/academy': typeof AcademyRoute
   '/contact': typeof ContactRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
@@ -101,13 +100,13 @@ export interface FileRoutesByTo {
   '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rainbow-six-siege': typeof TeamsRainbowSixSiegeRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
+  '/academy': typeof AcademyIndexRoute
   '/teams': typeof TeamsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/academy': typeof AcademyRoute
   '/contact': typeof ContactRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
@@ -115,6 +114,7 @@ export interface FileRoutesById {
   '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rainbow-six-siege': typeof TeamsRainbowSixSiegeRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
+  '/academy/': typeof AcademyIndexRoute
   '/teams/': typeof TeamsIndexRoute
 }
 export interface FileRouteTypes {
@@ -122,7 +122,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/academy'
     | '/contact'
     | '/social'
     | '/sponsors'
@@ -130,12 +129,12 @@ export interface FileRouteTypes {
     | '/teams/fortnite'
     | '/teams/rainbow-six-siege'
     | '/teams/rocket-league'
+    | '/academy/'
     | '/teams/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/academy'
     | '/contact'
     | '/social'
     | '/sponsors'
@@ -143,12 +142,12 @@ export interface FileRouteTypes {
     | '/teams/fortnite'
     | '/teams/rainbow-six-siege'
     | '/teams/rocket-league'
+    | '/academy'
     | '/teams'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/academy'
     | '/contact'
     | '/social'
     | '/sponsors'
@@ -156,13 +155,13 @@ export interface FileRouteTypes {
     | '/teams/fortnite'
     | '/teams/rainbow-six-siege'
     | '/teams/rocket-league'
+    | '/academy/'
     | '/teams/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AcademyRoute: typeof AcademyRoute
   ContactRoute: typeof ContactRoute
   SocialRoute: typeof SocialRoute
   SponsorsRoute: typeof SponsorsRoute
@@ -170,6 +169,7 @@ export interface RootRouteChildren {
   TeamsFortniteRoute: typeof TeamsFortniteRoute
   TeamsRainbowSixSiegeRoute: typeof TeamsRainbowSixSiegeRoute
   TeamsRocketLeagueRoute: typeof TeamsRocketLeagueRoute
+  AcademyIndexRoute: typeof AcademyIndexRoute
   TeamsIndexRoute: typeof TeamsIndexRoute
 }
 
@@ -203,13 +203,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/academy': {
-      id: '/academy'
-      path: '/academy'
-      fullPath: '/academy'
-      preLoaderRoute: typeof AcademyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -229,6 +222,13 @@ declare module '@tanstack/react-router' {
       path: '/teams'
       fullPath: '/teams/'
       preLoaderRoute: typeof TeamsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academy/': {
+      id: '/academy/'
+      path: '/academy'
+      fullPath: '/academy/'
+      preLoaderRoute: typeof AcademyIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/teams/rocket-league': {
@@ -258,7 +258,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AcademyRoute: AcademyRoute,
   ContactRoute: ContactRoute,
   SocialRoute: SocialRoute,
   SponsorsRoute: SponsorsRoute,
@@ -266,6 +265,7 @@ const rootRouteChildren: RootRouteChildren = {
   TeamsFortniteRoute: TeamsFortniteRoute,
   TeamsRainbowSixSiegeRoute: TeamsRainbowSixSiegeRoute,
   TeamsRocketLeagueRoute: TeamsRocketLeagueRoute,
+  AcademyIndexRoute: AcademyIndexRoute,
   TeamsIndexRoute: TeamsIndexRoute,
 }
 export const routeTree = rootRouteImport
