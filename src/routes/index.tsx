@@ -23,7 +23,7 @@ const teams = [
   { game: "Fortnite", status: "Active", to: "/teams/fortnite" as const, logo: gameFortnite },
   { game: "Valorant", status: "Coming Soon", to: null, logo: gameVal },
   { game: "Counter-Strike", status: "Coming Soon", to: null, logo: gameCS },
-  { game: "Rainbow Six Siege", status: "Coming Soon", to: null, logo: gameR6 },
+  { game: "Rainbow Six Siege", status: "Active", to: "/teams/rainbow-six-siege" as const, logo: gameR6 },
 ];
 
 

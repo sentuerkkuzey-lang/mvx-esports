@@ -8,7 +8,7 @@ import gameCS from "@/assets/game-csgo.png";
 import gameR6 from "@/assets/game-r6.jpeg";
 import gameFortnite from "@/assets/game-fortnite.jpeg";
 
-export const Route = createFileRoute("/academy")({
+export const Route = createFileRoute("/academy/")({
   head: () => ({
     meta: [
       { title: "MVX Academy — Pure Class" },
@@ -57,10 +57,10 @@ function AcademyPage() {
           <Reveal delay={450}>
             <div className="mt-12 flex flex-wrap justify-center gap-4">
               <Link
-                to="/academy"
+                to="/academy/about"
                 className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-all duration-300"
               >
-                Explore Academy
+                About the Academy
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
               <Link
