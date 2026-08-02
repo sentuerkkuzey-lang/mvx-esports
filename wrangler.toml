@@ -1,2 +1,5 @@
 # wrangler.toml
 name = 'mvx-esports'
+[observability.logs]
+enabled = false
+invocation_logs = true
