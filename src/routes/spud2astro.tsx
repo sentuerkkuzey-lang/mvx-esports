@@ -28,9 +28,9 @@ const spudSocials = [
 export const Route = createFileRoute("/spud2astro")({
   head: () => ({
     meta: [
-      { title: "Spud2Astro — Co-Founder of MVX" },
+      { title: "Spud2Astro — Partner of MVX Esports" },
       { name: "description", content: "Ethan 'Spud2Astro' — Co-Founder of MVX, the ecosystem behind MVX Esports. IT infrastructure, content creator, and brand leader." },
-      { property: "og:title", content: "Spud2Astro — Co-Founder of MVX" },
+      { property: "og:title", content: "Spud2Astro — Partner of MVX Esports" },
       { property: "og:description", content: "Co-founder of MVX and the technical and creative force behind the MVX ecosystem." },
       { property: "og:image", content: spud2astro },
     ],
@@ -64,7 +64,7 @@ function Spud2AstroPage() {
           </Reveal>
 
           <Reveal delay={120}>
-            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Co-Founder, MVX</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Official Partner</p>
             <h1 className="mt-6 text-display-lg uppercase">Spud2Astro</h1>
             <p className="mt-6 text-lg text-muted-foreground">
               Ethan "Spud2Astro" is the co-founder of MVX — the ecosystem behind MVX Esports. He shapes the organisation's technical infrastructure, brand voice, and community-first content strategy.
