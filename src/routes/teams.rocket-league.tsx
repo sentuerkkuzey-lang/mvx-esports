@@ -4,7 +4,7 @@ import { MvxLogo } from "@/components/MvxLogo";
 import { RocketLeagueIcon } from "@/components/RankIcon";
 import rankChampion from "@/assets/rank-champion.jpeg";
 import rankGrandChampion from "@/assets/rank-grand-champion.jpeg";
-import rankDiamond from "@/assets/rank-diamond.jpeg";
+import rankDiamond from "@/assets/rank-rl-diamond.png";
 import flagPl from "@/assets/flag-pl.png";
 import flagGb from "@/assets/flag-gb.png";
 import flagDe from "@/assets/flag-de.png";
