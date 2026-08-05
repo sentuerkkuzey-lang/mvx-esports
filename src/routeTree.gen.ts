@@ -16,11 +16,9 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TeamsIndexRouteImport } from './routes/teams.index'
-import { Route as AcademyIndexRouteImport } from './routes/academy.index'
 import { Route as TeamsRocketLeagueRouteImport } from './routes/teams.rocket-league'
 import { Route as TeamsRainbowSixSiegeRouteImport } from './routes/teams.rainbow-six-siege'
 import { Route as TeamsFortniteRouteImport } from './routes/teams.fortnite'
-import { Route as AcademyAboutRouteImport } from './routes/academy.about'
 
 const Spud2astroRoute = Spud2astroRouteImport.update({
   id: '/spud2astro',
@@ -57,11 +55,6 @@ const TeamsIndexRoute = TeamsIndexRouteImport.update({
   path: '/teams/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AcademyIndexRoute = AcademyIndexRouteImport.update({
-  id: '/academy/',
-  path: '/academy/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const TeamsRocketLeagueRoute = TeamsRocketLeagueRouteImport.update({
   id: '/teams/rocket-league',
   path: '/teams/rocket-league',
@@ -77,11 +70,6 @@ const TeamsFortniteRoute = TeamsFortniteRouteImport.update({
   path: '/teams/fortnite',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AcademyAboutRoute = AcademyAboutRouteImport.update({
-  id: '/academy/about',
-  path: '/academy/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -90,11 +78,9 @@ export interface FileRoutesByFullPath {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
-  '/academy/about': typeof AcademyAboutRoute
   '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rainbow-six-siege': typeof TeamsRainbowSixSiegeRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
-  '/academy/': typeof AcademyIndexRoute
   '/teams/': typeof TeamsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -104,11 +90,9 @@ export interface FileRoutesByTo {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
-  '/academy/about': typeof AcademyAboutRoute
   '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rainbow-six-siege': typeof TeamsRainbowSixSiegeRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
-  '/academy': typeof AcademyIndexRoute
   '/teams': typeof TeamsIndexRoute
 }
 export interface FileRoutesById {
@@ -119,11 +103,9 @@ export interface FileRoutesById {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
-  '/academy/about': typeof AcademyAboutRoute
   '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rainbow-six-siege': typeof TeamsRainbowSixSiegeRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
-  '/academy/': typeof AcademyIndexRoute
   '/teams/': typeof TeamsIndexRoute
 }
 export interface FileRouteTypes {
@@ -135,11 +117,9 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
-    | '/academy/about'
     | '/teams/fortnite'
     | '/teams/rainbow-six-siege'
     | '/teams/rocket-league'
-    | '/academy/'
     | '/teams/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -149,11 +129,9 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
-    | '/academy/about'
     | '/teams/fortnite'
     | '/teams/rainbow-six-siege'
     | '/teams/rocket-league'
-    | '/academy'
     | '/teams'
   id:
     | '__root__'
@@ -163,11 +141,9 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
-    | '/academy/about'
     | '/teams/fortnite'
     | '/teams/rainbow-six-siege'
     | '/teams/rocket-league'
-    | '/academy/'
     | '/teams/'
   fileRoutesById: FileRoutesById
 }
@@ -178,11 +154,9 @@ export interface RootRouteChildren {
   SocialRoute: typeof SocialRoute
   SponsorsRoute: typeof SponsorsRoute
   Spud2astroRoute: typeof Spud2astroRoute
-  AcademyAboutRoute: typeof AcademyAboutRoute
   TeamsFortniteRoute: typeof TeamsFortniteRoute
   TeamsRainbowSixSiegeRoute: typeof TeamsRainbowSixSiegeRoute
   TeamsRocketLeagueRoute: typeof TeamsRocketLeagueRoute
-  AcademyIndexRoute: typeof AcademyIndexRoute
   TeamsIndexRoute: typeof TeamsIndexRoute
 }
 
@@ -237,13 +211,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/academy/': {
-      id: '/academy/'
-      path: '/academy'
-      fullPath: '/academy/'
-      preLoaderRoute: typeof AcademyIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/teams/rocket-league': {
       id: '/teams/rocket-league'
       path: '/teams/rocket-league'
@@ -265,13 +232,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamsFortniteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/academy/about': {
-      id: '/academy/about'
-      path: '/academy/about'
-      fullPath: '/academy/about'
-      preLoaderRoute: typeof AcademyAboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -282,11 +242,9 @@ const rootRouteChildren: RootRouteChildren = {
   SocialRoute: SocialRoute,
   SponsorsRoute: SponsorsRoute,
   Spud2astroRoute: Spud2astroRoute,
-  AcademyAboutRoute: AcademyAboutRoute,
   TeamsFortniteRoute: TeamsFortniteRoute,
   TeamsRainbowSixSiegeRoute: TeamsRainbowSixSiegeRoute,
   TeamsRocketLeagueRoute: TeamsRocketLeagueRoute,
-  AcademyIndexRoute: AcademyIndexRoute,
   TeamsIndexRoute: TeamsIndexRoute,
 }
 export const routeTree = rootRouteImport
