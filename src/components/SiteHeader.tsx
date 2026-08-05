@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { MvxLogo } from "./MvxLogo";
-import { MvxAcademyLogo } from "./MvxAcademyLogo";
 
 
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/teams", label: "Teams" },
-  { to: "/academy", label: "Academy" },
   { to: "/sponsors", label: "Sponsors" },
   { to: "/social", label: "Social" },
   { to: "/contact", label: "Contact" },
@@ -19,7 +17,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isAcademy = pathname.startsWith("/academy");
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
