@@ -174,6 +174,51 @@ function RocketLeagueRosterPage() {
           </div>
         </div>
       </section>
+
+      <section className="hairline-t">
+        <div className="container-xl py-20 md:py-24">
+          <Reveal>
+            <div className="flex items-end justify-between flex-wrap gap-4">
+              <h2 className="font-display text-2xl md:text-3xl uppercase tracking-[0.05em]">
+                Coaches
+              </h2>
+              <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                1 Coach
+              </span>
+            </div>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Reveal>
+              <Link to="/coaches/rajtko" className="block">
+                <article className="group relative overflow-hidden rounded-3xl border border-white/10 bg-elevated p-8 transition-all duration-500 hover:border-white/30 hover:-translate-y-1">
+                  <div className="flex items-start justify-between">
+                    <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                      Coach
+                    </span>
+                    <MvxLogo className="h-9 w-9 opacity-80" />
+                  </div>
+
+                  <div className="mt-14">
+                    <p className="font-display text-3xl uppercase tracking-[0.05em]">
+                      Rajtko
+                    </p>
+                    <p className="mt-4 text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                      1v1 &amp; 3v3 Specialist
+                    </p>
+                  </div>
+
+                  <div className="mt-8 hairline-t pt-5 flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                    <span>View profile →</span>
+                    <span>MVX Staff</span>
+                  </div>
+                </article>
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
+

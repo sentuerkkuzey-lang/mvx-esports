@@ -19,6 +19,7 @@ import { Route as TeamsIndexRouteImport } from './routes/teams.index'
 import { Route as TeamsRocketLeagueRouteImport } from './routes/teams.rocket-league'
 import { Route as TeamsRainbowSixSiegeRouteImport } from './routes/teams.rainbow-six-siege'
 import { Route as TeamsFortniteRouteImport } from './routes/teams.fortnite'
+import { Route as CoachesRajtkoRouteImport } from './routes/coaches.rajtko'
 
 const Spud2astroRoute = Spud2astroRouteImport.update({
   id: '/spud2astro',
@@ -70,6 +71,11 @@ const TeamsFortniteRoute = TeamsFortniteRouteImport.update({
   path: '/teams/fortnite',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoachesRajtkoRoute = CoachesRajtkoRouteImport.update({
+  id: '/coaches/rajtko',
+  path: '/coaches/rajtko',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -78,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
+  '/coaches/rajtko': typeof CoachesRajtkoRoute
   '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rainbow-six-siege': typeof TeamsRainbowSixSiegeRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
+  '/coaches/rajtko': typeof CoachesRajtkoRoute
   '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rainbow-six-siege': typeof TeamsRainbowSixSiegeRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
@@ -103,6 +111,7 @@ export interface FileRoutesById {
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
+  '/coaches/rajtko': typeof CoachesRajtkoRoute
   '/teams/fortnite': typeof TeamsFortniteRoute
   '/teams/rainbow-six-siege': typeof TeamsRainbowSixSiegeRoute
   '/teams/rocket-league': typeof TeamsRocketLeagueRoute
@@ -117,6 +126,7 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
+    | '/coaches/rajtko'
     | '/teams/fortnite'
     | '/teams/rainbow-six-siege'
     | '/teams/rocket-league'
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
+    | '/coaches/rajtko'
     | '/teams/fortnite'
     | '/teams/rainbow-six-siege'
     | '/teams/rocket-league'
@@ -141,6 +152,7 @@ export interface FileRouteTypes {
     | '/social'
     | '/sponsors'
     | '/spud2astro'
+    | '/coaches/rajtko'
     | '/teams/fortnite'
     | '/teams/rainbow-six-siege'
     | '/teams/rocket-league'
@@ -154,6 +166,7 @@ export interface RootRouteChildren {
   SocialRoute: typeof SocialRoute
   SponsorsRoute: typeof SponsorsRoute
   Spud2astroRoute: typeof Spud2astroRoute
+  CoachesRajtkoRoute: typeof CoachesRajtkoRoute
   TeamsFortniteRoute: typeof TeamsFortniteRoute
   TeamsRainbowSixSiegeRoute: typeof TeamsRainbowSixSiegeRoute
   TeamsRocketLeagueRoute: typeof TeamsRocketLeagueRoute
@@ -232,6 +245,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamsFortniteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/coaches/rajtko': {
+      id: '/coaches/rajtko'
+      path: '/coaches/rajtko'
+      fullPath: '/coaches/rajtko'
+      preLoaderRoute: typeof CoachesRajtkoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -242,6 +262,7 @@ const rootRouteChildren: RootRouteChildren = {
   SocialRoute: SocialRoute,
   SponsorsRoute: SponsorsRoute,
   Spud2astroRoute: Spud2astroRoute,
+  CoachesRajtkoRoute: CoachesRajtkoRoute,
   TeamsFortniteRoute: TeamsFortniteRoute,
   TeamsRainbowSixSiegeRoute: TeamsRainbowSixSiegeRoute,
   TeamsRocketLeagueRoute: TeamsRocketLeagueRoute,
@@ -250,13 +271,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
