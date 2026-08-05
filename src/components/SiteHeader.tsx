@@ -37,15 +37,12 @@ export function SiteHeader() {
       }`}
     >
       <div className="container-xl flex h-16 items-center justify-between">
-        <Link to={isAcademy ? "/academy" : "/"} className="flex items-center gap-3 group">
-          {isAcademy ? (
-            <MvxAcademyLogo className="h-9 w-9 transition-transform duration-500 group-hover:scale-105" />
-          ) : (
-            <MvxLogo className="h-9 w-9 transition-transform duration-500 group-hover:scale-105" />
-          )}
+        <Link to="/" className="flex items-center gap-3 group">
+          <MvxLogo className="h-9 w-9 transition-transform duration-500 group-hover:scale-105" />
           <span className="font-display text-xs tracking-[0.25em] uppercase opacity-90">
-            {isAcademy ? "MVX Academy" : "MVX Esports"}
+            MVX Esports
           </span>
+
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
