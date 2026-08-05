@@ -21,7 +21,10 @@ function escapeHtml(input: string) {
     .replace(/'/g, "&#39;");
 }
 
-export const onRequestPost: PagesFunction<Env> = async (context) => {
+type RequestContext = { request: Request; env: Env };
+
+export const onRequestPost = async (context: RequestContext) => {
+
   let body: Record<string, unknown>;
   try {
     body = await context.request.json();

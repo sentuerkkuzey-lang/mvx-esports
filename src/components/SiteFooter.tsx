@@ -1,33 +1,24 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, TwitchIcon, YouTubeIcon, SOCIAL_LINKS } from "./SocialIcons";
 import { MvxLogo } from "./MvxLogo";
-import { MvxAcademyLogo } from "./MvxAcademyLogo";
 
 export function SiteFooter() {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isAcademy = pathname.startsWith("/academy");
   return (
     <footer className="hairline-t mt-32">
       <div className="container-xl py-20">
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              {isAcademy ? (
-                <MvxAcademyLogo className="h-10 w-10 rounded-full ring-1 ring-white/15" />
-              ) : (
-                <MvxLogo className="h-10 w-10" />
-              )}
+              <MvxLogo className="h-10 w-10" />
               <span className="font-display text-xs tracking-[0.25em] uppercase">
-                {isAcademy ? "MVX Academy" : "MVX Esports"}
+                MVX Esports
               </span>
             </div>
             <p className="mt-6 font-display text-3xl md:text-4xl uppercase tracking-[0.06em]">
               Pure Class
             </p>
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-              {isAcademy
-                ? "The development arm of MVX Esports, building the next generation of competitive talent."
-                : "A modern esports organization built on professionalism, ambition, and competitive excellence."}
+              A modern esports organization built on professionalism, ambition, and competitive excellence.
             </p>
           </div>
 
@@ -35,13 +26,13 @@ export function SiteFooter() {
             { label: "Home", to: "/" },
             { label: "About", to: "/about" },
             { label: "Teams", to: "/teams" },
-            { label: "Academy", to: "/academy" },
           ]} />
           <FooterCol title="Business" items={[
             { label: "Sponsors", to: "/sponsors" },
             { label: "Contact", to: "/contact" },
             { label: "Social", to: "/social" },
           ]} />
+
 
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Connect</p>
