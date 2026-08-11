@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import { MvxLogo } from "@/components/MvxLogo";
+import { MvxCompanyLogo } from "@/components/MvxCompanyLogo";
 
 export const Route = createFileRoute("/maxverstappen")({
   head: () => ({
@@ -108,7 +108,7 @@ function FounderPage() {
       <section className="hairline-t">
         <div className="container-xl py-24 md:py-32 text-center">
           <Reveal>
-            <MvxLogo className="mx-auto h-24 w-24" />
+            <MvxCompanyLogo className="mx-auto h-24 w-24" />
             <h2 className="mt-10 text-display-lg uppercase">Pure Class.</h2>
             <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
               Founded on one standard, and held to it every day.
