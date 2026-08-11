@@ -60,6 +60,16 @@ function MvxPage() {
             organisation built and made for the big leagues. Everything that carries the MVX name is
             designed, financed, and governed here.
           </p>
+          <p className="mt-6 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+            MVX was established and founded by{" "}
+            <Link
+              to="/maxverstappen"
+              className="text-foreground underline decoration-white/30 underline-offset-4 hover:decoration-white transition-colors"
+            >
+              Maxverstappen__
+            </Link>
+            .
+          </p>
         </Reveal>
       </section>
 
