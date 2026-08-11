@@ -7,6 +7,7 @@ import { MvxLogo } from "./MvxLogo";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "/mvx", label: "MVX" },
   { to: "/teams", label: "Teams" },
   { to: "/sponsors", label: "Sponsors" },
   { to: "/social", label: "Social" },

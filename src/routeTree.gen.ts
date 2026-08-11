@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as Spud2astroRouteImport } from './routes/spud2astro'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as SocialRouteImport } from './routes/social'
+import { Route as MvxRouteImport } from './routes/mvx'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -34,6 +35,11 @@ const SponsorsRoute = SponsorsRouteImport.update({
 const SocialRoute = SocialRouteImport.update({
   id: '/social',
   path: '/social',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MvxRoute = MvxRouteImport.update({
+  id: '/mvx',
+  path: '/mvx',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/mvx': typeof MvxRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/mvx': typeof MvxRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
@@ -108,6 +116,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/mvx': typeof MvxRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
   '/spud2astro': typeof Spud2astroRoute
@@ -123,6 +132,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/mvx'
     | '/social'
     | '/sponsors'
     | '/spud2astro'
@@ -136,6 +146,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/mvx'
     | '/social'
     | '/sponsors'
     | '/spud2astro'
@@ -149,6 +160,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/mvx'
     | '/social'
     | '/sponsors'
     | '/spud2astro'
@@ -163,6 +175,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  MvxRoute: typeof MvxRoute
   SocialRoute: typeof SocialRoute
   SponsorsRoute: typeof SponsorsRoute
   Spud2astroRoute: typeof Spud2astroRoute
@@ -194,6 +207,13 @@ declare module '@tanstack/react-router' {
       path: '/social'
       fullPath: '/social'
       preLoaderRoute: typeof SocialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mvx': {
+      id: '/mvx'
+      path: '/mvx'
+      fullPath: '/mvx'
+      preLoaderRoute: typeof MvxRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -259,6 +279,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  MvxRoute: MvxRoute,
   SocialRoute: SocialRoute,
   SponsorsRoute: SponsorsRoute,
   Spud2astroRoute: Spud2astroRoute,
