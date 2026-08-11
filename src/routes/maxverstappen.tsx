@@ -1,0 +1,127 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
+import { MvxLogo } from "@/components/MvxLogo";
+
+export const Route = createFileRoute("/maxverstappen")({
+  head: () => ({
+    meta: [
+      { title: "Maxverstappen__ — Founder of MVX" },
+      {
+        name: "description",
+        content:
+          "Maxverstappen__ established and founded MVX. TikTok editor, Max Verstappen fan, and the vision behind MVX Esports.",
+      },
+      { property: "og:title", content: "Maxverstappen__ — Founder of MVX" },
+      {
+        property: "og:description",
+        content:
+          "The founder of MVX: a TikTok editor turned esports builder, driven by precision, patience, and Pure Class.",
+      },
+      { property: "og:type", content: "profile" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: FounderPage,
+});
+
+const facts = [
+  { k: "Role", v: "Founder — MVX" },
+  { k: "Craft", v: "TikTok editing" },
+  { k: "Fan of", v: "Max Verstappen" },
+  { k: "Standard", v: "Pure Class" },
+];
+
+function FounderPage() {
+  return (
+    <>
+      <section className="container-xl pt-20 pb-24 md:pt-32 md:pb-32">
+        <Reveal>
+          <Link
+            to="/mvx"
+            className="text-xs uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground transition-colors"
+          >
+            ← MVX
+          </Link>
+          <p className="mt-10 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+            Founder &amp; Establisher
+          </p>
+          <h1 className="mt-6 text-display-lg uppercase max-w-4xl">Maxverstappen__</h1>
+        </Reveal>
+        <Reveal delay={150}>
+          <p className="mt-10 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+            MVX was established and founded by Maxverstappen__ — the person behind the name, the
+            standard, and the long-term plan. Everything the organisation stands for started as one
+            idea: build something in esports that actually looks and feels premium.
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="hairline-t">
+        <div className="container-xl py-24 md:py-32 grid gap-16 md:grid-cols-[1fr_1.4fr]">
+          <Reveal>
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">The career</p>
+            <h2 className="mt-6 font-display text-3xl md:text-5xl uppercase">Editor first</h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed">
+              <p>
+                Maxverstappen__ built his name as a TikTok editor — cutting, timing, and colouring
+                short-form content until every frame earned its place. Years of editing taught him
+                the discipline that now defines MVX: rhythm, restraint, and detail that most people
+                only notice subconsciously.
+              </p>
+              <p>
+                That editing background is why MVX does not look like a typical esports organisation.
+                The brand, the pacing of every page, the typography and the silence around it are all
+                the work of someone used to shaping how something feels in the first two seconds.
+              </p>
+              <p>
+                He is also, unapologetically, a Max Verstappen fan. The name is a tribute — and so is
+                the mentality behind it: obsessive preparation, cold execution, and a refusal to
+                settle for second place.
+              </p>
+              <p>
+                From editing timelines to building rosters, staff structures, and partnerships, the
+                ambition has stayed the same — take MVX to the big leagues without ever losing the
+                class it was founded on.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="hairline-t">
+        <div className="container-xl py-20 md:py-24">
+          <div className="grid gap-px bg-white/10 hairline-t hairline-b sm:grid-cols-2 lg:grid-cols-4">
+            {facts.map((f, i) => (
+              <Reveal key={f.k} delay={i * 80}>
+                <div className="bg-background p-8 h-full">
+                  <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{f.k}</p>
+                  <p className="mt-4 font-display text-lg uppercase tracking-[0.06em]">{f.v}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="hairline-t">
+        <div className="container-xl py-24 md:py-32 text-center">
+          <Reveal>
+            <MvxLogo className="mx-auto h-24 w-24" />
+            <h2 className="mt-10 text-display-lg uppercase">Pure Class.</h2>
+            <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
+              Founded on one standard, and held to it every day.
+            </p>
+            <Link
+              to="/mvx"
+              className="mt-10 inline-flex items-center rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-colors"
+            >
+              About MVX
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+    </>
+  );
+}
