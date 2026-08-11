@@ -13,6 +13,7 @@ import { Route as Spud2astroRouteImport } from './routes/spud2astro'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as SocialRouteImport } from './routes/social'
 import { Route as MvxRouteImport } from './routes/mvx'
+import { Route as MaxverstappenRouteImport } from './routes/maxverstappen'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -40,6 +41,11 @@ const SocialRoute = SocialRouteImport.update({
 const MvxRoute = MvxRouteImport.update({
   id: '/mvx',
   path: '/mvx',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaxverstappenRoute = MaxverstappenRouteImport.update({
+  id: '/maxverstappen',
+  path: '/maxverstappen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/maxverstappen': typeof MaxverstappenRoute
   '/mvx': typeof MvxRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/maxverstappen': typeof MaxverstappenRoute
   '/mvx': typeof MvxRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
@@ -116,6 +124,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/maxverstappen': typeof MaxverstappenRoute
   '/mvx': typeof MvxRoute
   '/social': typeof SocialRoute
   '/sponsors': typeof SponsorsRoute
@@ -132,6 +141,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/maxverstappen'
     | '/mvx'
     | '/social'
     | '/sponsors'
@@ -146,6 +156,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/maxverstappen'
     | '/mvx'
     | '/social'
     | '/sponsors'
@@ -160,6 +171,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/maxverstappen'
     | '/mvx'
     | '/social'
     | '/sponsors'
@@ -175,6 +187,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  MaxverstappenRoute: typeof MaxverstappenRoute
   MvxRoute: typeof MvxRoute
   SocialRoute: typeof SocialRoute
   SponsorsRoute: typeof SponsorsRoute
@@ -214,6 +227,13 @@ declare module '@tanstack/react-router' {
       path: '/mvx'
       fullPath: '/mvx'
       preLoaderRoute: typeof MvxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maxverstappen': {
+      id: '/maxverstappen'
+      path: '/maxverstappen'
+      fullPath: '/maxverstappen'
+      preLoaderRoute: typeof MaxverstappenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -279,6 +299,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  MaxverstappenRoute: MaxverstappenRoute,
   MvxRoute: MvxRoute,
   SocialRoute: SocialRoute,
   SponsorsRoute: SponsorsRoute,
