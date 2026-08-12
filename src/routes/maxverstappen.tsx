@@ -119,12 +119,23 @@ function FounderPage() {
             <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
               Founded on one standard, and held to it every day.
             </p>
-            <Link
-              to="/mvx"
-              className="mt-10 inline-flex items-center rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-colors"
-            >
-              About MVX
-            </Link>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                to="/mvx"
+                className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-colors"
+              >
+                About MVX
+              </Link>
+              <a
+                href="https://www.tiktok.com/@maxverstappen__3?_r=1&_t=ZG-98ozq6ZxSRE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-foreground hover:border-white/30 hover:bg-white/5 transition-colors"
+              >
+                <TikTokIcon className="h-4 w-4" />
+                Follow on TikTok
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
