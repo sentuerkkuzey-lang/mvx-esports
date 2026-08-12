@@ -46,13 +46,18 @@ function FounderPage() {
           <p className="mt-10 text-xs uppercase tracking-[0.25em] text-muted-foreground">
             Founder &amp; Establisher
           </p>
-          <h1 className="mt-6 text-display-lg uppercase max-w-4xl">Maxverstappen__</h1>
+          <h1 className="mt-6 text-display-lg uppercase max-w-4xl break-words">Maxverstappen__</h1>
         </Reveal>
         <Reveal delay={150}>
           <p className="mt-10 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
             MVX was established and founded by Maxverstappen__ — the person behind the name, the
             standard, and the long-term plan. Everything the organisation stands for started as one
             idea: build something in esports that actually looks and feels premium.
+          </p>
+          <p className="mt-6 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+            He started MVX because he was tired of the recent uprise of AI-generated esports teams —
+            faceless brands with no soul, no standards, and no willingness to do the work themselves.
+            MVX exists to prove that real founders, real taste, and real patience still win.
           </p>
         </Reveal>
       </section>
