@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxCompanyLogo } from "@/components/MvxCompanyLogo";
+import { TikTokIcon } from "@/components/SocialIcons";
 
 export const Route = createFileRoute("/maxverstappen")({
   head: () => ({
@@ -45,13 +46,18 @@ function FounderPage() {
           <p className="mt-10 text-xs uppercase tracking-[0.25em] text-muted-foreground">
             Founder &amp; Establisher
           </p>
-          <h1 className="mt-6 text-display-lg uppercase max-w-4xl">Maxverstappen__</h1>
+          <h1 className="mt-6 text-display-lg uppercase max-w-4xl break-words">Maxverstappen__</h1>
         </Reveal>
         <Reveal delay={150}>
           <p className="mt-10 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
             MVX was established and founded by Maxverstappen__ — the person behind the name, the
             standard, and the long-term plan. Everything the organisation stands for started as one
             idea: build something in esports that actually looks and feels premium.
+          </p>
+          <p className="mt-6 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+            He started MVX because he was tired of the recent uprise of AI-generated esports teams —
+            faceless brands with no soul, no standards, and no willingness to do the work themselves.
+            MVX exists to prove that real founders, real taste, and real patience still win.
           </p>
         </Reveal>
       </section>
@@ -113,12 +119,23 @@ function FounderPage() {
             <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
               Founded on one standard, and held to it every day.
             </p>
-            <Link
-              to="/mvx"
-              className="mt-10 inline-flex items-center rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-colors"
-            >
-              About MVX
-            </Link>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                to="/mvx"
+                className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-colors"
+              >
+                About MVX
+              </Link>
+              <a
+                href="https://www.tiktok.com/@maxverstappen__3?_r=1&_t=ZG-98ozq6ZxSRE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-foreground hover:border-white/30 hover:bg-white/5 transition-colors"
+              >
+                <TikTokIcon className="h-4 w-4" />
+                Follow on TikTok
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
