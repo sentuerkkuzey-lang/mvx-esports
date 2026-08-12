@@ -59,6 +59,11 @@ function FounderPage() {
             faceless brands with no soul, no standards, and no willingness to do the work themselves.
             MVX exists to prove that real founders, real taste, and real patience still win.
           </p>
+          <p className="mt-6 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+            He established MVX at the age of 13, making him one of Germany&apos;s youngest company
+            founders — proof that the organisation was never built on shortcuts, but on early
+            conviction and an unusual level of patience for the big leagues.
+          </p>
         </Reveal>
       </section>
 
