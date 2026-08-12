@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxCompanyLogo } from "@/components/MvxCompanyLogo";
+import { TikTokIcon } from "@/components/SocialIcons";
 
 export const Route = createFileRoute("/maxverstappen")({
   head: () => ({
