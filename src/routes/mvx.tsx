@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxCompanyLogo } from "@/components/MvxCompanyLogo";
+import { TikTokIcon, SOCIAL_LINKS } from "@/components/SocialIcons";
+
+const PAGE_URL = "https://mvx-esports.lovable.app/mvx";
+const OFFICIAL_TIKTOK = "https://tiktok.com/@mvx__3";
 
 export const Route = createFileRoute("/mvx")({
   head: () => ({
@@ -18,7 +22,28 @@ export const Route = createFileRoute("/mvx")({
           "The parent company behind MVX Esports: structure, standards, and long-term vision built for the big leagues.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: PAGE_URL },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: PAGE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "MVX",
+          alternateName: "MVX Esports",
+          url: PAGE_URL,
+          logo: "https://mvx-esports.lovable.app/favicon.ico",
+          sameAs: [OFFICIAL_TIKTOK, SOCIAL_LINKS.instagram, SOCIAL_LINKS.x, SOCIAL_LINKS.youtube, SOCIAL_LINKS.twitch, SOCIAL_LINKS.discord],
+          founder: {
+            "@type": "Person",
+            name: "Maxverstappen__",
+            url: "https://mvx-esports.lovable.app/maxverstappen",
+          },
+        }),
+      },
     ],
   }),
   component: MvxPage,

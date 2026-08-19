@@ -6,11 +6,39 @@ import { TikTokIcon, InstagramIcon, XIcon, DiscordIcon, TwitchIcon, YouTubeIcon,
 import twitchIcon from "@/assets/twitch-icon.png";
 import discordIcon from "@/assets/discord-icon.png";
 
+const PAGE_URL = "https://mvx-esports.lovable.app/social";
+
 export const Route = createFileRoute("/social")({
   head: () => ({
     meta: [
       { title: "Social — MVX Esports" },
-      { name: "description", content: "Follow MVX Esports across every platform." },
+      { name: "description", content: "Follow MVX Esports on TikTok, Instagram, X, YouTube, Twitch, and Discord. Every channel, one standard: Pure Class." },
+      { property: "og:title", content: "Social — MVX Esports" },
+      { property: "og:description", content: "Follow MVX Esports on TikTok, Instagram, X, YouTube, Twitch, and Discord." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: PAGE_URL },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: PAGE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "MVX Esports",
+          url: "https://mvx-esports.lovable.app",
+          logo: "https://mvx-esports.lovable.app/favicon.ico",
+          sameAs: [
+            SOCIAL_LINKS.tiktok,
+            SOCIAL_LINKS.instagram,
+            SOCIAL_LINKS.x,
+            SOCIAL_LINKS.youtube,
+            SOCIAL_LINKS.twitch,
+            SOCIAL_LINKS.discord,
+          ],
+        }),
+      },
     ],
   }),
   component: SocialPage,
@@ -19,7 +47,7 @@ export const Route = createFileRoute("/social")({
 const socials: { name: string; handle: string; icon?: ComponentType<SVGProps<SVGSVGElement>>; image?: string; href: string }[] = [
   { name: "Instagram", handle: "@mvx.esports__", icon: InstagramIcon, href: SOCIAL_LINKS.instagram },
   { name: "X / Twitter", handle: "@MVXEsports", icon: XIcon, href: SOCIAL_LINKS.x },
-  { name: "TikTok", handle: "@mvx.esports__", icon: TikTokIcon, href: SOCIAL_LINKS.tiktok },
+  { name: "TikTok", handle: "@mvx__3", icon: TikTokIcon, href: SOCIAL_LINKS.tiktok },
   { name: "YouTube", handle: "@mvxesports", icon: YouTubeIcon, href: SOCIAL_LINKS.youtube },
   { name: "Twitch", handle: "@mvxesports__", image: twitchIcon, href: SOCIAL_LINKS.twitch },
   { name: "Discord", handle: "Join the server", image: discordIcon, href: SOCIAL_LINKS.discord },
