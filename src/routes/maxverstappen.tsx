@@ -3,6 +3,8 @@ import { Reveal } from "@/components/Reveal";
 import { MvxCompanyLogo } from "@/components/MvxCompanyLogo";
 import { TikTokIcon } from "@/components/SocialIcons";
 
+const TIKTOK_URL = "https://tiktok.com/@maxverstappen__3";
+
 export const Route = createFileRoute("/maxverstappen")({
   head: () => ({
     meta: [
@@ -20,6 +22,25 @@ export const Route = createFileRoute("/maxverstappen")({
       },
       { property: "og:type", content: "profile" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Maxverstappen__",
+          alternateName: "Maxverstappen",
+          jobTitle: "Founder — MVX",
+          url: "https://mvx-esports.lovable.app/maxverstappen",
+          sameAs: [TIKTOK_URL],
+          worksFor: {
+            "@type": "Organization",
+            name: "MVX Esports",
+            url: "https://mvx-esports.lovable.app",
+          },
+        }),
+      },
     ],
   }),
   component: FounderPage,
