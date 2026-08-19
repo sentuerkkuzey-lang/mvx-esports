@@ -176,12 +176,23 @@ function MvxPage() {
               Partnership, sponsorship, or player enquiries — the company handles every conversation
               directly.
             </p>
-            <Link
-              to="/contact"
-              className="mt-10 inline-flex items-center rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-colors"
-            >
-              Get in touch
-            </Link>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-colors"
+              >
+                Get in touch
+              </Link>
+              <a
+                href={OFFICIAL_TIKTOK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-foreground hover:border-white/30 hover:bg-white/5 transition-colors"
+              >
+                <TikTokIcon className="h-4 w-4" />
+                Follow on TikTok
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
