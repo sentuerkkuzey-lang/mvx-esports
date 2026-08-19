@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { MvxCompanyLogo } from "@/components/MvxCompanyLogo";
+import { TikTokIcon, SOCIAL_LINKS } from "@/components/SocialIcons";
+
+const PAGE_URL = "https://mvx-esports.lovable.app/mvx";
+const OFFICIAL_TIKTOK = "https://tiktok.com/@mvx__3";
 
 export const Route = createFileRoute("/mvx")({
   head: () => ({
@@ -18,7 +22,28 @@ export const Route = createFileRoute("/mvx")({
           "The parent company behind MVX Esports: structure, standards, and long-term vision built for the big leagues.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: PAGE_URL },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: PAGE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "MVX",
+          alternateName: "MVX Esports",
+          url: PAGE_URL,
+          logo: "https://mvx-esports.lovable.app/favicon.ico",
+          sameAs: [OFFICIAL_TIKTOK, SOCIAL_LINKS.instagram, SOCIAL_LINKS.x, SOCIAL_LINKS.youtube, SOCIAL_LINKS.twitch, SOCIAL_LINKS.discord],
+          founder: {
+            "@type": "Person",
+            name: "Maxverstappen__",
+            url: "https://mvx-esports.lovable.app/maxverstappen",
+          },
+        }),
+      },
     ],
   }),
   component: MvxPage,
@@ -151,12 +176,23 @@ function MvxPage() {
               Partnership, sponsorship, or player enquiries — the company handles every conversation
               directly.
             </p>
-            <Link
-              to="/contact"
-              className="mt-10 inline-flex items-center rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-colors"
-            >
-              Get in touch
-            </Link>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-background hover:bg-white/90 transition-colors"
+              >
+                Get in touch
+              </Link>
+              <a
+                href={OFFICIAL_TIKTOK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-xs uppercase tracking-[0.2em] text-foreground hover:border-white/30 hover:bg-white/5 transition-colors"
+              >
+                <TikTokIcon className="h-4 w-4" />
+                Follow on TikTok
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>

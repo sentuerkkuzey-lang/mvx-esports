@@ -100,23 +100,23 @@ return (
 <html lang="en"> 
 <head> 
 <HeadContent /> 
-<script type="application/ld+json"> 
-{JSON.stringify({ 
-"@context": "https://schema.org", 
-"@type": "Organization", 
-"name": "MVX Esports", 
-"url": "https://mvx-esports.com", 
-"logo": "https://mvx-esports.com/favicon.ico", 
-"sameAs": [ 
-"https://www.instagram.com/mvx.esports__?igsh=ZHJmMmU5cmM4eXF5&utm_source=qr", 
-"https://www.tiktok.com/@mvx.esports__", 
-"https://www.x.com/MVXEsports", 
-"https://www.twitch.tv/mvxesports", 
-"https://www.youtube.com/@mvxesports", 
-"https://discord.gg/XkAnjVmTCE" 
-] 
-})} 
-</script> 
+    <script type="application/ld+json"> 
+          {JSON.stringify({ 
+            "@context": "https://schema.org", 
+            "@type": "Organization", 
+            "name": "MVX Esports", 
+            "url": "https://mvx-esports.lovable.app", 
+            "logo": "https://mvx-esports.lovable.app/favicon.ico", 
+            "sameAs": [ 
+              "https://tiktok.com/@mvx__3", 
+              "https://www.instagram.com/mvx.esports__?igsh=ZHJmMmU5cmM4eXF5&utm_source=qr", 
+              "https://x.com/MVXEsports", 
+              "https://www.twitch.tv/mvxesports__", 
+              "https://www.youtube.com/@mvxesports", 
+              "https://discord.gg/XkAnjVmTCE" 
+            ] 
+          })} 
+        </script>
 </head> 
 <body> 
 {children} 

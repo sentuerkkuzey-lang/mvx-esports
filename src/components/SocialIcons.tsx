@@ -52,7 +52,7 @@ export function YouTubeIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 export const SOCIAL_LINKS = {
-  tiktok: "https://www.tiktok.com/@mvx.esports__",
+  tiktok: "https://tiktok.com/@mvx__3",
   instagram: "https://www.instagram.com/mvx.esports__?igsh=ZHJmMmU5cmM4eXF5&utm_source=qr",
   x: "https://x.com/MVXEsports",
   discord: "https://discord.gg/XkAnjVmTCE",
