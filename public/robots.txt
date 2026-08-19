@@ -27,4 +27,4 @@ Allow: /
 User-agent: Amazonbot
 Allow: /
 
-Sitemap: https://mvx-esports.com/sitemap.xml
+Sitemap: https://mvx-esports.lovable.app/sitemap.xml
