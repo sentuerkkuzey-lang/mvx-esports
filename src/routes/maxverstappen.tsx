@@ -4,6 +4,7 @@ import { MvxCompanyLogo } from "@/components/MvxCompanyLogo";
 import { TikTokIcon } from "@/components/SocialIcons";
 
 const TIKTOK_URL = "https://tiktok.com/@maxverstappen__3";
+const PAGE_URL = "https://mvx-esports.lovable.app/maxverstappen";
 
 export const Route = createFileRoute("/maxverstappen")({
   head: () => ({
@@ -21,8 +22,10 @@ export const Route = createFileRoute("/maxverstappen")({
           "The founder of MVX: a TikTok editor turned esports builder, driven by precision, patience, and Pure Class.",
       },
       { property: "og:type", content: "profile" },
+      { property: "og:url", content: PAGE_URL },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: PAGE_URL }],
     scripts: [
       {
         type: "application/ld+json",
